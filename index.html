@@ -7,11 +7,18 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
     .hero {
-      background: url('https://source.unsplash.com/1600x600/?team,workshop') no-repeat center center;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://source.unsplash.com/1600x700/?team,workshop') no-repeat center center;
       background-size: cover;
       color: white;
-      padding: 120px 20px;
+      padding: 140px 20px;
       text-align: center;
+    }
+    .hero h1, .hero p {
+      color: white;
+      text-shadow: 1px 1px 2px black;
+    }
+    .section {
+      padding: 60px 20px;
     }
     .testimonial, .form-section {
       background-color: #f8f9fa;
@@ -19,8 +26,19 @@
       border-radius: 8px;
       margin-bottom: 20px;
     }
-    .section {
-      padding: 60px 20px;
+    .card-header {
+      font-weight: bold;
+      background: #f1f1f1;
+    }
+    .card-footer {
+      background: #f9f9f9;
+    }
+    .whatsapp-btn {
+      background-color: #25d366;
+      border: none;
+    }
+    .whatsapp-btn:hover {
+      background-color: #1ebe5b;
     }
   </style>
 </head>
@@ -31,7 +49,49 @@
   <div class="container">
     <h1 class="display-5">WSQ Funded Team Alignment / Engagement / Bonding Programmes</h1>
     <p class="lead">Interactive, impactful and fully claimable under WSQ — build stronger teams today.</p>
-    <a href="https://wa.me/6591234567?text=Hi%20I'm%20interested%20in%20your%20team%20bonding%20programme" target="_blank" class="btn btn-success btn-lg mt-3">WhatsApp Us</a>
+    <a href="https://wa.me/6596753242?text=Hi%20Ryan%2C%20I%20saw%20your%20teambonding%20website" target="_blank" class="btn whatsapp-btn btn-lg mt-3 text-white">WhatsApp Us</a>
+  </div>
+</section>
+
+<!-- Funding Options Section -->
+<section class="section bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">Our WSQ-Funded Programme Options</h2>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card h-100 shadow">
+          <div class="card-header text-primary">Option 1: 2-Day Learning Workshop (Best Value)</div>
+          <div class="card-body">
+            <ul>
+              <li><strong>Fully WSQ-funded</strong> for eligible locals</li>
+              <li>Includes venue (hotel/resort) arranged by us</li>
+              <li>70% training subsidy, $4.50/hr absentee payroll, 90% SkillsFuture Enterprise Credit</li>
+              <li>Budget 2023: 400% tax deduction or cash conversion</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <p><strong>Example (Local):</strong> Subsidised cost $180 → Fully reimbursed via claims</p>
+            <p><strong>Example (Non-local):</strong> $600 cost → $540 credit → 90% reimbursed</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100 shadow">
+          <div class="card-header text-danger">Option 2: 1-Day Engagement Workshop (Most Popular)</div>
+          <div class="card-body">
+            <ul>
+              <li><strong>Highly subsidised</strong> and perfect for half-day or 1-day sessions</li>
+              <li><strong>Client arranges venue</strong></li>
+              <li>Same grant stack: training subsidy, absentee payroll & SkillsFuture credits</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <p><strong>Example (Local):</strong> Subsidised cost $60 → Surplus of $70.80</p>
+            <p><strong>Example (Non-local):</strong> $200 cost → $180 credit → Surplus of $116</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -41,40 +101,19 @@
     <h2>Why Choose Our Programmes?</h2>
     <div class="row mt-4">
       <div class="col-md-4">
-        <img src="https://source.unsplash.com/200x200/?teamwork" class="img-fluid rounded-circle mb-3">
+        <img src="https://source.unsplash.com/200x200/?teamwork" class="img-fluid rounded-circle mb-3" alt="Teamwork">
         <h5>Interactive & Fun</h5>
         <p>Engaging activities designed to spark creativity and laughter while reinforcing learning.</p>
       </div>
       <div class="col-md-4">
-        <img src="https://source.unsplash.com/200x200/?learning" class="img-fluid rounded-circle mb-3">
+        <img src="https://source.unsplash.com/200x200/?learning" class="img-fluid rounded-circle mb-3" alt="Learning">
         <h5>Learning-Focused</h5>
         <p>Every game is mapped to learning outcomes aligned with team and organisational goals.</p>
       </div>
       <div class="col-md-4">
-        <img src="https://source.unsplash.com/200x200/?collaboration" class="img-fluid rounded-circle mb-3">
+        <img src="https://source.unsplash.com/200x200/?collaboration" class="img-fluid rounded-circle mb-3" alt="Collaboration">
         <h5>Stronger Teams</h5>
         <p>Foster deeper trust, communication and alignment through shared challenges.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- How It Works Section -->
-<section class="section bg-light">
-  <div class="container">
-    <h2 class="text-center">How It Works</h2>
-    <div class="row mt-4">
-      <div class="col-md-4">
-        <h5>1. Tailored Design</h5>
-        <p>We customise activities to align with your learning goals and team dynamics.</p>
-      </div>
-      <div class="col-md-4">
-        <h5>2. On-site or Off-site</h5>
-        <p>Choose to host it at your office, outdoors or any venue you prefer.</p>
-      </div>
-      <div class="col-md-4">
-        <h5>3. Post-Session Reflections</h5>
-        <p>End with guided reflections to ensure learning sticks and actions are drawn.</p>
       </div>
     </div>
   </div>
@@ -96,34 +135,12 @@
   </div>
 </section>
 
-<!-- Gallery Section -->
-<section class="section bg-light text-center">
-  <div class="container">
-    <h2>Gallery</h2>
-    <p class="mb-4">A glimpse into our past sessions.</p>
-    <div class="row g-3">
-      <div class="col-6 col-md-3"><img src="https://source.unsplash.com/300x200/?training" class="img-fluid rounded"></div>
-      <div class="col-6 col-md-3"><img src="https://source.unsplash.com/300x200/?team-building" class="img-fluid rounded"></div>
-      <div class="col-6 col-md-3"><img src="https://source.unsplash.com/300x200/?leadership" class="img-fluid rounded"></div>
-      <div class="col-6 col-md-3"><img src="https://source.unsplash.com/300x200/?corporate" class="img-fluid rounded"></div>
-    </div>
-  </div>
-</section>
-
 <!-- Call to Action -->
-<section class="section text-center">
+<section class="section text-center bg-light">
   <div class="container">
     <h2>Ready to Transform Your Team?</h2>
     <p>Drop us a message and we’ll reach out to customise your next team bonding experience.</p>
-    <a href="https://wa.me/6591234567?text=Hi%20I'm%20interested%20in%20your%20team%20bonding%20programme" target="_blank" class="btn btn-success btn-lg">WhatsApp Us</a>
-  </div>
-</section>
-
-<!-- Placeholder for Future Embedded Form -->
-<section class="section form-section text-center">
-  <div class="container">
-    <h2>Prefer Email?</h2>
-    <p>In future, we can embed a custom enquiry form here linked to your email inbox (e.g. via Formspree or Getform).</p>
+    <a href="https://wa.me/6596753242?text=Hi%20Ryan%2C%20I%20saw%20your%20teambonding%20website" target="_blank" class="btn whatsapp-btn btn-lg text-white">WhatsApp Us</a>
   </div>
 </section>
 
