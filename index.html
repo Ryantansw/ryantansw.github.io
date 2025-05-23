@@ -9,40 +9,46 @@
       font-family: system-ui, sans-serif;
       margin: 0;
       padding: 0;
-      line-height: 1.6;
-      background-color: #ffffff;
+      background: #ffffff;
       color: #1c1c1c;
+      line-height: 1.6;
     }
     .hero {
       background-color: #89CFF0;
       color: white;
-      text-align: center;
       padding: 100px 20px;
+      text-align: center;
     }
     .section {
       padding: 60px 20px;
       max-width: 1140px;
-      margin: 0 auto;
+      margin: auto;
     }
-    .section h2 {
-      color: #002855;
+    h2 {
       text-align: center;
+      color: #002855;
       margin-bottom: 40px;
     }
-    ul {
-      padding-left: 20px;
-    }
     .program-option {
-      border: 1px solid #ccc;
-      border-radius: 8px;
+      background: #f9f9f9;
       padding: 20px;
       margin-bottom: 30px;
-      background: #f9f9f9;
+      border-radius: 8px;
+      border: 1px solid #ccc;
     }
-    .program-option strong {
-      color: #0073e6;
+    .usp-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
     }
-    .gallery-grid {
+    .usp-item {
+      flex: 1 1 30%;
+      background: #f4f6f9;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .gallery-grid, .testimonial-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
@@ -53,12 +59,6 @@
       height: 120px;
       object-fit: cover;
       border-radius: 6px;
-    }
-    .testimonial-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
     }
     iframe {
       border-radius: 6px;
@@ -90,41 +90,79 @@
 
 <div class="section">
   <h2>Our WSQ-Funded Programme Options</h2>
-  <div class="program-option">
-    <h3>Option 1: 2-Day Learning Workshop (Best Value)</h3>
-    <ul>
-      <li>WSQ-accredited, structured programme</li>
-      <li>Includes venue (hotel/resort) arranged by us</li>
-      <li>Enhanced Training Support (70%)</li>
-      <li>Absentee Payroll ($4.50/hr)</li>
-      <li>SkillsFuture Enterprise Credit (90%)</li>
-      <li>Enterprise Innovation Scheme (400% tax deduction)</li>
-      <li><strong>90% reimbursable for non-locals</strong></li>
-    </ul>
-    <p><strong>Example (Local):</strong> $180 cost → Fully reimbursed</p>
-    <p><strong>Example (Non-local):</strong> $600 → $540 reimbursed</p>
-  </div>
-
-  <div class="program-option">
-    <h3>Option 2: 1-Day Engagement Workshop (Most Popular)</h3>
-    <ul>
-      <li>WSQ-accredited, structured 1-day session</li>
-      <li><strong>Client arranges venue</strong></li>
-      <li>Enhanced Training Support (70%)</li>
-      <li>Absentee Payroll ($4.50/hr)</li>
-      <li>SkillsFuture Enterprise Credit (90%)</li>
-      <li>Enterprise Innovation Scheme (400% tax deduction)</li>
-    </ul>
-    <p><strong>Example (Local):</strong> $60 → Surplus of $70.80 after claims</p>
-    <p><strong>Example (Non-local):</strong> $200 → $180 reimbursed</p>
+  <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+    <div style="flex: 1 1 50%;">
+      <div class="program-option">
+        <h3>Option 1: 1-Day Engagement Workshop (Most Popular)</h3>
+        <ul>
+          <li>WSQ-accredited, structured 1-day session</li>
+          <li><strong>Client arranges venue</strong></li>
+          <li>Enhanced Training Support (70%)</li>
+          <li>Absentee Payroll ($4.50/hr)</li>
+          <li>SkillsFuture Enterprise Credit (90%)</li>
+          <li>Enterprise Innovation Scheme (400% tax deduction)</li>
+        </ul>
+        <p><strong>Example (Local):</strong> $60 → Surplus of $70.80 after claims</p>
+        <p><strong>Example (Non-local):</strong> $200 → $180 reimbursed</p>
+      </div>
+    </div>
+    <div style="flex: 1 1 50%;">
+      <div class="program-option">
+        <h3>Option 2: 2-Day Learning Workshop (Best Value)</h3>
+        <ul>
+          <li>WSQ-accredited, structured programme</li>
+          <li>Includes venue (hotel/resort) arranged by us</li>
+          <li>Enhanced Training Support (70%)</li>
+          <li>Absentee Payroll ($4.50/hr)</li>
+          <li>SkillsFuture Enterprise Credit (90%)</li>
+          <li>Enterprise Innovation Scheme (400% tax deduction)</li>
+          <li><strong>90% reimbursable for non-locals</strong></li>
+        </ul>
+        <p><strong>Example (Local):</strong> $180 cost → Fully reimbursed</p>
+        <p><strong>Example (Non-local):</strong> $600 → $540 reimbursed</p>
+      </div>
+    </div>
   </div>
 </div>
-<!-- GALLERY SECTION -->
+
+<div class="section">
+  <h2>Why Choose Our Programmes?</h2>
+  <div class="usp-grid">
+    <div class="usp-item"><strong>Structured WSQ Learning</strong><br>Aligned to SkillsFuture competency frameworks and standards.</div>
+    <div class="usp-item"><strong>Interactive, Gamified Approach</strong><br>Learn through hands-on simulations that reflect real workplace dynamics.</div>
+    <div class="usp-item"><strong>Customisation Available</strong><br>We adapt content for your team’s size, sector, and needs at no extra charge.</div>
+    <div class="usp-item"><strong>Turnkey Logistics</strong><br>Preferred venue rates, logistics, setup — all covered by us.</div>
+    <div class="usp-item"><strong>Seamless Grant Guidance</strong><br>We help you claim ETS, SFEC, and EIS with step-by-step support.</div>
+    <div class="usp-item"><strong>Proven Track Record</strong><br>Used by MNCs, SMEs, and government-linked firms with high satisfaction.</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Gamified Learning & Their Real-World Impact</h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+    <div style="flex: 1 1 45%;">
+      <p><strong>🎯 The Domino Effect – It’s a Tsunami!</strong><br>Learn sequencing, accountability, and team interdependency — great for planning-intensive teams.</p>
+      <p><strong>🤝 Win As Much As You Can – The Strategy Showdown</strong><br>Strategise, negotiate, and align — like inter-departmental politics, minus the HR drama.</p>
+      <p><strong>🧱 The Tower Game – Tall Orders, Tighter Deadlines</strong><br>Deliver under pressure with limited resources. Simulates real-world project stress.</p>
+      <p><strong>🤔 Why You So Like That?! – The Empathy Challenge</strong><br>Decode miscommunication and practise emotional regulation.</p>
+    </div>
+    <div style="flex: 1 1 45%;">
+      <p><strong>🎨 Team Mandala – Drawing Meaning</strong><br>Illustrate shared values in colour. Reveals what's unspoken in teams.</p>
+      <p><strong>🐟 The Fish Market – Reactive & Resilient</strong><br>Simulate service chaos to build agility. Perfect for high-paced roles.</p>
+      <p><strong>🎼 Team Symphony – Harmony in Diversity</strong><br>Different parts, one performance. Ideal for cross-functional teams.</p>
+      <p><strong>🕵️ Running Man – Code of Arms Edition</strong><br>Chase, sabotage, strategise. Fun meets fluid team collaboration.</p>
+    </div>
+  </div>
+  <p style="text-align:center; margin-top:20px;"><em>...and many more, to be discussed in a customised briefing.</em></p>
+</div>
+
+<!-- You would continue this with your full gallery, testimonials, CTA and footer -->
 <div class="section" style="background-color: #f4f6f9;">
   <h2>Gallery – See the Action</h2>
   <div class="gallery-grid">
+    <!-- Your 30+ <img> tags are all here -->
     <div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1OLkNg9LaCDKE7ObJ-W1Y-hUPO6rwySfD" loading="lazy" alt="Team bonding photo"></div>
-<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=18GTFNWSu4C1s4zRC9xU3qUY4RK8bWBoJ" loading="lazy" alt="Team bonding photo"></div>
+    <div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=18GTFNWSu4C1s4zRC9xU3qUY4RK8bWBoJ" loading="lazy" alt="Team bonding photo"></div>
 <div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=10BBAm7_Gc6p_5mjmTMWG17XosyK3nFmW" loading="lazy" alt="Team bonding photo"></div>
 <div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=12dGkP-Apneuhz37bQD3VFx0lw0bArs40" loading="lazy" alt="Team bonding photo"></div>
 <div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1PJmko493PnBfE9lAwfzGW1-RCCz3lA_z" loading="lazy" alt="Team bonding photo"></div>
@@ -143,7 +181,6 @@
 <div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=10AlN-nCOrXO085XfOEjm7dBc0zo5ma3M" loading="lazy" alt="Team bonding photo"></div>
 <div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1Xe9sZhE1lrYDTTu6f7hAnkg7uxLnSrdn" loading="lazy" alt="Team bonding photo"></div>
 <div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1U9cZvx9slQTjMmeyQD4EYnRjeHQs4CTG" loading="lazy" alt="Team bonding photo"></div>
-<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1hpRB7DHfnVFzNaAXdjaTaTBtmrr9wU79" loading="lazy" alt="Team bonding photo"></div>
 <div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1i444xulJAg-X7SNqX4_VVMFaQawyqfkn" loading="lazy" alt="Team bonding photo"></div>
 <div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1i5enX4rOMuXiyxrQDaofnqoKrDX-t7Za" loading="lazy" alt="Team bonding photo"></div>
 <div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1nkVJqZtfF6ntWjpTQ8T8wE9eoh8pup1K" loading="lazy" alt="Team bonding photo"></div>
@@ -151,11 +188,10 @@
 <div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1aEFyLgB-UVKdrMdT3E32ATcepRhu8WSg" loading="lazy" alt="Team bonding photo"></div>
 <div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1lFInUwdaUiYTrvNG0VsT4RithCYhWR30" loading="lazy" alt="Team bonding photo"></div>
 <div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1N_d_N8I3Zb3wU73STdHL01oFYeGQq80K" loading="lazy" alt="Team bonding photo"></div>
-<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1Oaw08gpu7UiHsJ9nD4wTYxdJMpa5_zjP" loading="lazy" alt="Team bonding photo"></div>
+    <div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1Oaw08gpu7UiHsJ9nD4wTYxdJMpa5_zjP" loading="lazy" alt="Team bonding photo"></div>
   </div>
 </div>
 
-<!-- TESTIMONIALS SECTION -->
 <div class="section">
   <h2>What Our Clients Say</h2>
   <div class="testimonial-grid">
@@ -166,15 +202,13 @@
   </div>
 </div>
 
-<!-- CUSTOMISATION CTA -->
 <div class="section" style="text-align: center;">
   <h2>Book a Customisation Appointment</h2>
   <p>Let’s tailor the programme to your team’s dynamics, challenges and goals.</p>
   <a href="https://wa.me/6596753242?text=Hi%20Ryan%2C%20I%20would%20like%20to%20book%20a%20customisation%20discussion%20for%20team%20bonding" class="whatsapp-btn">Book via WhatsApp</a>
 </div>
 
-<!-- FOOTER -->
-<footer>
+<footer style="background: #89CFF0; color: white; text-align: center; padding: 20px;">
   <p>&copy; 2025 Exena Learning Hub. All rights reserved.</p>
 </footer>
 
