@@ -4,195 +4,179 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>WSQ Team Bonding | Exena Learning Hub</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <style>
     body {
       font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #ffffff;
       color: #1c1c1c;
     }
-    .whatsapp-btn {
-      background-color: #075e54;
-      border: none;
+    .hero {
+      background-color: #89CFF0;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
     }
-    .whatsapp-btn:hover {
-      background-color: #054e44;
+    .section {
+      padding: 60px 20px;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+    .section h2 {
+      color: #002855;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .program-option {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+      background: #f9f9f9;
+    }
+    .program-option strong {
+      color: #0073e6;
+    }
+    .gallery-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    .gallery-img img {
+      width: 160px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .testimonial-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
     }
     iframe {
-      border: none;
+      border-radius: 6px;
     }
-    h2 {
-      color: #002855;
+    footer {
+      background: #1c1c1c;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .whatsapp-btn {
+      display: inline-block;
+      background-color: #075e54;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
 
-<section class="hero" style="background-color: #89CFF0; padding: 140px 20px; text-align: center; color: white;">
-  <div class="container">
-    <h1 class="display-5">WSQ Funded Team Alignment / Engagement / Bonding Programmes</h1>
-    <p class="lead">Interactive, impactful and fully claimable under WSQ — build stronger teams today.</p>
-    <a href="https://wa.me/6596753242?text=Hi%20Ryan%2C%20I%20saw%20your%20teambonding%20website" target="_blank" class="btn whatsapp-btn btn-lg mt-3 text-white">WhatsApp Us</a>
-  </div>
-</section>
+<div class="hero">
+  <h1>WSQ Funded Team Alignment / Engagement / Bonding Programmes</h1>
+  <p>Interactive, impactful and fully claimable under WSQ — build stronger teams today.</p>
+  <a href="https://wa.me/6596753242?text=Hi%20Ryan%2C%20I%20saw%20your%20teambonding%20website" class="whatsapp-btn">WhatsApp Us</a>
+</div>
 
-<section class="section bg-light">
-  <div class="container">
-    <h2 class="text-center mb-5">Our WSQ-Funded Programme Options</h2>
-    <div class="row g-4">
-      <div class="col-md-6">
-        <div class="card h-100 shadow">
-          <div class="card-header option-1 bg-primary text-white">Option 1: 2-Day Learning Workshop (Best Value)</div>
-          <div class="card-body">
-            <ul>
-              <li>WSQ-accredited, structured programme</li>
-              <li>Includes venue (hotel/resort) arranged by us</li>
-              <li>Enhanced Training Support (70% subsidy)</li>
-              <li>Absentee Payroll ($4.50/hr)</li>
-              <li>SkillsFuture Enterprise Credit (90%)</li>
-              <li>Enterprise Innovation Scheme (400% tax deduction)</li>
-              <li><strong>90% reimbursable for non-locals</strong></li>
-            </ul>
-          </div>
-          <div class="card-footer">
-            <p><strong>Example (Local):</strong> $180 cost → Fully reimbursed</p>
-            <p><strong>Example (Non-local):</strong> $600 → $540 reimbursed via SFEC</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card h-100 shadow">
-          <div class="card-header option-2 bg-danger text-white">Option 2: 1-Day Engagement Workshop (Most Popular)</div>
-          <div class="card-body">
-            <ul>
-              <li>WSQ-accredited, structured 1-day session</li>
-              <li><strong>Client arranges venue</strong></li>
-              <li>Enhanced Training Support (70%)</li>
-              <li>Absentee Payroll ($4.50/hr)</li>
-              <li>SkillsFuture Enterprise Credit (90%)</li>
-              <li>Enterprise Innovation Scheme (400% tax deduction)</li>
-            </ul>
-          </div>
-          <div class="card-footer">
-            <p><strong>Example (Local):</strong> $60 → Surplus of $70.80 after claims</p>
-            <p><strong>Example (Non-local):</strong> $200 → $180 reimbursed</p>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="section">
+  <h2>Our WSQ-Funded Programme Options</h2>
+  <div class="program-option">
+    <h3>Option 1: 2-Day Learning Workshop (Best Value)</h3>
+    <ul>
+      <li>WSQ-accredited, structured programme</li>
+      <li>Includes venue (hotel/resort) arranged by us</li>
+      <li>Enhanced Training Support (70%)</li>
+      <li>Absentee Payroll ($4.50/hr)</li>
+      <li>SkillsFuture Enterprise Credit (90%)</li>
+      <li>Enterprise Innovation Scheme (400% tax deduction)</li>
+      <li><strong>90% reimbursable for non-locals</strong></li>
+    </ul>
+    <p><strong>Example (Local):</strong> $180 cost → Fully reimbursed</p>
+    <p><strong>Example (Non-local):</strong> $600 → $540 reimbursed</p>
   </div>
-</section>
 
-<section class="section text-center">
-  <div class="container">
-    <h2>Why Choose Our Programmes?</h2>
-    <div class="row mt-4">
-      <div class="col-md-4"><h5>Structured Learning with WSQ Accreditation</h5><p>Aligned to SkillsFuture Singapore's competency frameworks and outcomes.</p></div>
-      <div class="col-md-4"><h5>High-Energy, Hands-On Activities</h5><p>Teams learn through doing, solving and experiencing.</p></div>
-      <div class="col-md-4"><h5>Guided Reflections for Workplace Application</h5><p>Each session ends with actionable takeaways tied to your organisation’s goals.</p></div>
-      <div class="col-md-4"><h5>Complimentary Programme Personalisation</h5><p>We adapt activities and focus areas while staying aligned with WSQ structure.</p></div>
-      <div class="col-md-4"><h5>Seamless Grant Support Guidance</h5><p>Let us help you claim ETS, SFEC and EIS with step-by-step HR support.</p></div>
-      <div class="col-md-4"><h5>Preferred Rates for Hotel/Resort Venues</h5><p>We handle the logistics so you can focus on outcomes and experience.</p></div>
-    </div>
+  <div class="program-option">
+    <h3>Option 2: 1-Day Engagement Workshop (Most Popular)</h3>
+    <ul>
+      <li>WSQ-accredited, structured 1-day session</li>
+      <li><strong>Client arranges venue</strong></li>
+      <li>Enhanced Training Support (70%)</li>
+      <li>Absentee Payroll ($4.50/hr)</li>
+      <li>SkillsFuture Enterprise Credit (90%)</li>
+      <li>Enterprise Innovation Scheme (400% tax deduction)</li>
+    </ul>
+    <p><strong>Example (Local):</strong> $60 → Surplus of $70.80 after claims</p>
+    <p><strong>Example (Non-local):</strong> $200 → $180 reimbursed</p>
   </div>
-</section>
-<section class="section">
-  <div class="container">
-    <h2 class="text-center mb-5">Gamified Learning & Their Real-World Impact</h2>
-    <div class="row g-4">
-      <div class="col-md-6">
-        <h5>🎯 The Domino Effect – It’s a Tsunami!</h5>
-        <p>Learn sequencing, accountability, and team interdependency — great for planning-intensive teams. <em>Just a glimpse — the rest is tailored to your team’s goals.</em></p>
-        <h5>🤝 Win As Much As You Can – The Strategy Showdown</h5>
-        <p>Strategise, negotiate, and align — like inter-departmental politics, minus the HR drama. <em>Customisable to your org dynamics.</em></p>
-        <h5>🧱 The Tower Game – Tall Orders, Tighter Deadlines</h5>
-        <p>Deliver under pressure with limited resources. <em>Simulates real-world project stress.</em></p>
-        <h5>🤔 Why You So Like That?! – The Empathy Challenge</h5>
-        <p>Decode miscommunication and practise emotional regulation. <em>One of many human-centred games we run.</em></p>
-      </div>
-      <div class="col-md-6">
-        <h5>🎨 Team Mandala – Drawing Meaning</h5>
-        <p>Illustrate shared values in colour. <em>Reveals what's unspoken in teams.</em></p>
-        <h5>🐟 The Fish Market – Reactive & Resilient</h5>
-        <p>Simulate service chaos to build agility. <em>Perfect for high-paced roles.</em></p>
-        <h5>🎼 Team Symphony – Harmony in Diversity</h5>
-        <p>Different parts, one performance. <em>Ideal for multi-functional teams.</em></p>
-        <h5>🕵️ Running Man – Code of Arms Edition</h5>
-        <p>Chase, sabotage, strategise. <em>Fun meets fluid team collaboration.</em></p>
-      </div>
-    </div>
+</div>
+<!-- GALLERY SECTION -->
+<div class="section" style="background-color: #f4f6f9;">
+  <h2>Gallery – See the Action</h2>
+  <div class="gallery-grid">
+    <div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1OLkNg9LaCDKE7ObJ-W1Y-hUPO6rwySfD" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=18GTFNWSu4C1s4zRC9xU3qUY4RK8bWBoJ" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=10BBAm7_Gc6p_5mjmTMWG17XosyK3nFmW" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=12dGkP-Apneuhz37bQD3VFx0lw0bArs40" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1PJmko493PnBfE9lAwfzGW1-RCCz3lA_z" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1941SqUdX7A5lZA1odYNjy3nEzuk9v6wJ" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1xjaboTVvuHuCoUfBpzcmRpXzDOXv82k4" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=12-wB3QpL2ZJu_O0SCCs9cyJngmoH1r0D" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=12Qr9I7CpiSTglvjcDIrKkFXqEwR_DrZs" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=15skj9KwnN6nBXSL7DjH1TkyMFcIG4995" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1BALFmkOlvc0Mh1zDg5jqJ1tVAXtVAfJZ" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1Bub2NIlTNH41lTU4u_9y8fgTLzLIMmcp" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1dSvFnuhGL0Ne10xBLFA0Iv3YVFRrD70O" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1eFUMt1ArCkOblMVnEXd490QVkIjetKii" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1jz1nEqfWQSLIoiokStDSCQAOmgGdTvb9" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1E1oztY5vzPTeUwu961ntK9yIh7swx2Gc" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1VKzhuSxFb3hNvZ2csGbxn-o00ghj6EJN" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=10AlN-nCOrXO085XfOEjm7dBc0zo5ma3M" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1Xe9sZhE1lrYDTTu6f7hAnkg7uxLnSrdn" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1U9cZvx9slQTjMmeyQD4EYnRjeHQs4CTG" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1hpRB7DHfnVFzNaAXdjaTaTBtmrr9wU79" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1i444xulJAg-X7SNqX4_VVMFaQawyqfkn" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1i5enX4rOMuXiyxrQDaofnqoKrDX-t7Za" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1nkVJqZtfF6ntWjpTQ8T8wE9eoh8pup1K" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=19y4uYNmpDA1hhyxo1bxrEmS-DvcHtVql" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1aEFyLgB-UVKdrMdT3E32ATcepRhu8WSg" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1lFInUwdaUiYTrvNG0VsT4RithCYhWR30" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1N_d_N8I3Zb3wU73STdHL01oFYeGQq80K" loading="lazy" alt="Team bonding photo"></div>
+<div class="gallery-img"><img src="https://drive.google.com/thumbnail?id=1Oaw08gpu7UiHsJ9nD4wTYxdJMpa5_zjP" loading="lazy" alt="Team bonding photo"></div>
   </div>
-</section>
+</div>
 
-<!-- Insert full gallery from previous reply -->
-<section class="section bg-light text-center">
-  <div class="container">
-    <h2 class="mb-5">Gallery – See the Action</h2>
-    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3">
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/1OLkNg9LaCDKE7ObJ-W1Y-hUPO6rwySfD/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/18GTFNWSu4C1s4zRC9xU3qUY4RK8bWBoJ/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/10BBAm7_Gc6p_5mjmTMWG17XosyK3nFmW/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/12dGkP-Apneuhz37bQD3VFx0lw0bArs40/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/1PJmko493PnBfE9lAwfzGW1-RCCz3lA_z/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/1941SqUdX7A5lZA1odYNjy3nEzuk9v6wJ/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/1xjaboTVvuHuCoUfBpzcmRpXzDOXv82k4/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/12-wB3QpL2ZJu_O0SCCs9cyJngmoH1r0D/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/12Qr9I7CpiSTglvjcDIrKkFXqEwR_DrZs/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/15skj9KwnN6nBXSL7DjH1TkyMFcIG4995/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/1BALFmkOlvc0Mh1zDg5jqJ1tVAXtVAfJZ/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/1Bub2NIlTNH41lTU4u_9y8fgTLzLIMmcp/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/1dSvFnuhGL0Ne10xBLFA0Iv3YVFRrD70O/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/1eFUMt1ArCkOblMVnEXd490QVkIjetKii/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/1jz1nEqfWQSLIoiokStDSCQAOmgGdTvb9/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/1E1oztY5vzPTeUwu961ntK9yIh7swx2Gc/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/1VKzhuSxFb3hNvZ2csGbxn-o00ghj6EJN/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/10AlN-nCOrXO085XfOEjm7dBc0zo5ma3M/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/1Xe9sZhE1lrYDTTu6f7hAnkg7uxLnSrdn/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/1U9cZvx9slQTjMmeyQD4EYnRjeHQs4CTG/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/1hpRB7DHfnVFzNaAXdjaTaTBtmrr9wU79/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/1i444xulJAg-X7SNqX4_VVMFaQawyqfkn/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/1i5enX4rOMuXiyxrQDaofnqoKrDX-t7Za/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/1nkVJqZtfF6ntWjpTQ8T8wE9eoh8pup1K/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/19y4uYNmpDA1hhyxo1bxrEmS-DvcHtVql/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/1aEFyLgB-UVKdrMdT3E32ATcepRhu8WSg/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/1lFInUwdaUiYTrvNG0VsT4RithCYhWR30/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/1N_d_N8I3Zb3wU73STdHL01oFYeGQq80K/preview" allow="autoplay"></iframe></div>
-      <div class="col"><iframe class="w-100 rounded shadow-sm" height="120" src="https://drive.google.com/file/d/1Oaw08gpu7UiHsJ9nD4wTYxdJMpa5_zjP/preview" allow="autoplay"></iframe></div>
-    </div>
+<!-- TESTIMONIALS SECTION -->
+<div class="section">
+  <h2>What Our Clients Say</h2>
+  <div class="testimonial-grid">
+    <iframe width="250" height="180" src="https://drive.google.com/file/d/1iPfZ2v0EXAXWwOgPLANmCj1AxoZOpDAz/preview" allowfullscreen></iframe>
+    <iframe width="250" height="180" src="https://drive.google.com/file/d/1Hra7JmxVBNGNHI2mDtQUA25RGiGvJs2p/preview" allowfullscreen></iframe>
+    <iframe width="250" height="180" src="https://drive.google.com/file/d/1kVomeWJ0XUHS-WI5EqScVcQ8yDfR-ME_/preview" allowfullscreen></iframe>
+    <iframe width="250" height="180" src="https://drive.google.com/file/d/1U_EurbKhgaZbiCHwchvKDn7qsfOzRh9V/preview" allowfullscreen></iframe>
   </div>
-</section>
+</div>
 
-<!-- Testimonials -->
-<section class="section text-center">
-  <div class="container">
-    <h2 class="mb-5">What Our Clients Say</h2>
-    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-4">
-      <div class="col"><iframe class="w-100" height="180" src="https://drive.google.com/file/d/1iPfZ2v0EXAXWwOgPLANmCj1AxoZOpDAz/preview" allowfullscreen></iframe></div>
-      <div class="col"><iframe class="w-100" height="180" src="https://drive.google.com/file/d/1Hra7JmxVBNGNHI2mDtQUA25RGiGvJs2p/preview" allowfullscreen></iframe></div>
-      <div class="col"><iframe class="w-100" height="180" src="https://drive.google.com/file/d/1kVomeWJ0XUHS-WI5EqScVcQ8yDfR-ME_/preview" allowfullscreen></iframe></div>
-      <div class="col"><iframe class="w-100" height="180" src="https://drive.google.com/file/d/1U_EurbKhgaZbiCHwchvKDn7qsfOzRh9V/preview" allowfullscreen></iframe></div>
-      <div class="col"><iframe class="w-100" height="180" src="https://drive.google.com/file/d/1P3eIHaaY4X6oTlpv2jowLxfAcuWFmkz_/preview" allowfullscreen></iframe></div>
-      <div class="col"><iframe class="w-100" height="180" src="https://drive.google.com/file/d/1D-l_jK2DN3Kf_77tNxiKiY3saDelRidk/preview" allowfullscreen></iframe></div>
-      <div class="col"><iframe class="w-100" height="180" src="https://drive.google.com/file/d/1btfIieI33rz6DvEqr2USRTBc1LBib5Gh/preview" allowfullscreen></iframe></div>
-      <div class="col"><iframe class="w-100" height="180" src="https://drive.google.com/file/d/1dJ3FYJv0d5tTmqszmYUaYJPw5dLdGKbS/preview" allowfullscreen></iframe></div>
-    </div>
-  </div>
-</section>
+<!-- CUSTOMISATION CTA -->
+<div class="section" style="text-align: center;">
+  <h2>Book a Customisation Appointment</h2>
+  <p>Let’s tailor the programme to your team’s dynamics, challenges and goals.</p>
+  <a href="https://wa.me/6596753242?text=Hi%20Ryan%2C%20I%20would%20like%20to%20book%20a%20customisation%20discussion%20for%20team%20bonding" class="whatsapp-btn">Book via WhatsApp</a>
+</div>
 
-<!-- Customisation Appointment -->
-<section class="section text-center">
-  <div class="container">
-    <h2>Book a Customisation Appointment</h2>
-    <p class="lead">Want something that fits your team like a glove?</p>
-    <p>Let us walk you through your options, answer funding queries, and recommend the best WSQ-fit programme based on your needs.</p>
-    <a href="https://wa.me/6596753242?text=Hi%20Ryan%2C%20I%20would%20like%20to%20book%20a%20customisation%20discussion%20for%20team%20bonding" target="_blank" class="btn btn-primary btn-lg mt-3">Book via WhatsApp</a>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="text-center p-4 bg-dark text-white">
+<!-- FOOTER -->
+<footer>
   <p>&copy; 2025 Exena Learning Hub. All rights reserved.</p>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
