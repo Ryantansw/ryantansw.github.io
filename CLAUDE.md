@@ -2,30 +2,41 @@
 
 ## Project Overview
 
-Static GitHub Pages website for **Exena Learning Hub** — a Singapore-based team bonding workshop and training organization. Hosted at `teamworkshops.exenalearninghub.org`.
+Static GitHub Pages website for **Exena Learning Hub** — a Singapore-based WSQ-accredited team bonding workshop and training organisation. Hosted at `teamworkshops.exenalearninghub.org`.
 
 ## Repository Structure
 
 ```
 ├── CNAME              # Custom domain config for GitHub Pages
-├── index.html         # Interactive workshop proposal page (~2,650 lines)
-├── teambonding.html   # Marketing/landing page for team bonding workshops (~490 lines)
+├── index.html         # Main marketing/landing page
+├── proposal.html      # Interactive workshop proposal with costing calculator
+├── teambonding.html   # Legacy marketing page (superseded by index.html)
 └── CLAUDE.md          # This file
 ```
 
-There are no build tools, package managers, frameworks, or external dependencies beyond Google Fonts CDN.
+No build tools, package managers, or frameworks. Pure static HTML + CSS + JS.
 
 ## Pages
 
-- **index.html** — Workshop proposal/decision tool with collapsible sections, lazy-loaded media, pricing tables, and government funding info. Uses CSS custom properties for theming (`--accent: #2563eb`).
-- **teambonding.html** — Marketing landing page listing 17 activity options, WSQ-funded programme details, testimonials, and WhatsApp contact CTAs.
+- **index.html** — Professional marketing landing page. Sections: hero, stats, approach, programmes, activities, process, testimonials, clients, funding, gallery, other training, CTA, footer. Uses Inter font via Google Fonts, CSS custom properties, scroll-reveal animations (IntersectionObserver), and lazy-loaded media.
+- **proposal.html** — Interactive proposal tool sent to prospects. Features a WSQ funding calculator with live costing for Option A (1-day) and Option B (2-day), decision strip, copy/email integration, programme timeline, activity catalogue with video previews, and photo gallery.
+- **teambonding.html** — Legacy page (content merged into new index.html).
 
 ## Tech Stack
 
-- **HTML5** with semantic elements (`<section>`, `<details>`, `<article>`)
-- **CSS3** — all inline/embedded, using custom properties, flexbox, and grid
-- **JavaScript** — minimal vanilla JS for lazy-loading media (`data-src` pattern)
+- **HTML5** with semantic elements
+- **CSS3** — embedded, using custom properties (`--navy`, `--accent`, `--teal`, etc.), flexbox, grid, `clamp()`, gradient backgrounds, backdrop-filter
+- **JavaScript** — vanilla JS for: scroll-reveal (IntersectionObserver), lazy loading (data-src pattern), costing calculator, sticky nav, decision strip, clipboard API
+- **Google Fonts** — Inter (400–900 weights)
 - **No build step, no bundler, no package manager**
+
+## Design System
+
+- **Primary colors**: Navy `#0b1120`, Accent blue `#3b82f6`, Teal `#0d9488`
+- **Typography**: Inter font family, weights 400–900
+- **Border radius**: 16px (cards), 12px (smaller elements), 999px (pills)
+- **Shadows**: Three tiers (`--shadow-sm`, `--shadow`, `--shadow-lg`)
+- **Animations**: CSS transitions + IntersectionObserver `.reveal` class
 
 ## Development Workflow
 
@@ -33,20 +44,20 @@ There are no build tools, package managers, frameworks, or external dependencies
 2. Push to `master` branch to deploy via GitHub Pages
 3. No CI/CD, tests, or linting configured
 
-## Coding Conventions
+## Key Conventions
 
-- **CSS classes**: kebab-case (e.g., `.hero-grid`, `.section-title`, `.card-pad`)
-- **Section IDs**: descriptive names (`#cover`, `#summary`, `#formats`, `#schemes`, `#agenda`, `#activities`, `#gallery`, `#moments`)
-- **Lazy loading**: Use `data-src` attributes on images/iframes; JS loads them when parent `<details>` is toggled open
-- **Language**: `lang="en-SG"` on index.html, `lang="en"` on teambonding.html
-- **Color scheme (index.html)**: Blue accent `#2563eb`, CSS custom properties for theming
-- **Color scheme (teambonding.html)**: Dark blue `#12375d` headings, teal `#137f5e` CTAs, light blue `#a8e0f0` hero
+- **CSS classes**: kebab-case (e.g., `.feature-card`, `.section-title`, `.programme-grid`)
+- **CSS custom properties**: defined in `:root`, used throughout
+- **Lazy loading**: `data-src` attributes on images/iframes, loaded via IntersectionObserver
+- **Costing calculator**: Defined in `proposal.html` with `OPTIONS` config object containing fees and absentee payroll rates per option
+- **SETTINGS object**: At top of `proposal.html` for customising recipient, sender name/org/email
 
 ## Key Notes for AI Assistants
 
-- This is a **pure static site** — no build commands to run, no tests to execute
-- All CSS is embedded in `<style>` tags within each HTML file (no external stylesheets)
-- Images and videos are hosted externally (Google Drive, external URLs) and lazy-loaded
-- The site targets a Singapore audience — preserve SGD currency references and local context
-- WhatsApp links are used for contact CTAs — preserve the phone number format
-- Government funding references (WSQ, SFEC, SkillsFuture) are Singapore-specific schemes
+- **Pure static site** — no build commands, no tests
+- All CSS is embedded in `<style>` tags (no external stylesheets except Google Fonts CDN)
+- Images/videos are hosted on Google Drive (thumbnail API for images, file preview for videos)
+- **Singapore audience** — preserve SGD currency, local context, government scheme references (WSQ, SFEC, SkillsFuture, EIS)
+- **WhatsApp CTAs** link to +65 9675 3242 (Ryan)
+- **Email**: info@exenalearninghub.com (general), ryan@exenalearninghub.org (proposal)
+- The `proposal.html` costing calculator is a critical feature — test thoroughly when modifying fee structures

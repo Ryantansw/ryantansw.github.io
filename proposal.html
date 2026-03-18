@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en-SG">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="description" content="Team Bonding Workshop Proposal — interactive costing calculator with WSQ funding, SFEC and EIS illustrations."/>
+<title>Workshop Proposal — Exena Learning Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0b1120;--navy-light:#162033;--slate:#334155;--muted:#64748b;--light:#f1f5f9;--lighter:#f8fafc;--white:#ffffff;
+  --accent:#3b82f6;--accent-dark:#2563eb;--accent-soft:rgba(59,130,246,.08);
+  --teal:#0d9488;--teal-soft:rgba(13,148,136,.08);
+  --border:rgba(15,23,42,.06);--border-solid:#e2e8f0;
+  --shadow:0 4px 24px rgba(0,0,0,.06);--shadow-lg:0 20px 60px rgba(0,0,0,.08);
+  --radius:16px;--radius-sm:12px;--max:1080px;
+  --transition:all .3s cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--navy);background:var(--lighter);line-height:1.6}
+a{color:inherit;text-decoration:none}
+.container{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.nav-brand{font-weight:900;font-size:18px;letter-spacing:-.5px}
+.nav-brand span{color:var(--accent)}
+.nav-back{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--muted);padding:8px 14px;border-radius:10px;transition:var(--transition)}
+.nav-back:hover{color:var(--navy);background:var(--lighter)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:999px;background:var(--navy);color:var(--white);font-size:14px;font-weight:600;transition:var(--transition)}
+.nav-cta:hover{background:var(--navy-light)}
+.nav-links{display:flex;gap:8px;align-items:center}
+
+/* HEADER */
+.page-header{padding:48px 0 32px;background:var(--white);border-bottom:1px solid var(--border)}
+.page-header h1{font-size:clamp(24px,3.5vw,36px);font-weight:900;letter-spacing:-.8px;margin-bottom:8px}
+.page-header p{font-size:16px;color:var(--muted);max-width:600px}
+.meta-grid{display:grid;gap:6px;margin-top:20px;font-size:14px;color:var(--slate)}
+.meta-grid strong{color:var(--navy);font-weight:700}
+.meta-row{display:grid;grid-template-columns:140px 1fr;gap:8px}
+@media(max-width:600px){.meta-row{grid-template-columns:1fr}}
+
+/* SECTION */
+.section{padding:48px 0}
+.section-title{display:flex;align-items:baseline;gap:12px;margin-bottom:20px}
+.section-title h2{font-size:22px;font-weight:800;letter-spacing:-.3px}
+.section-title .hint{font-size:14px;color:var(--muted)}
+
+/* CARDS */
+.card{border:1px solid var(--border-solid);border-radius:var(--radius);background:var(--white);box-shadow:var(--shadow)}
+.card-pad{padding:24px}
+.card-header{padding:16px 24px;border-bottom:1px solid var(--border);background:var(--lighter);border-radius:var(--radius) var(--radius) 0 0;font-weight:700;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+.card-header::after{content:'';width:8px;height:8px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);transition:var(--transition)}
+details[open] .card-header::after{transform:rotate(-135deg)}
+
+/* FORMAT CARDS */
+.format-grid{display:grid;gap:20px}
+@media(min-width:768px){.format-grid{grid-template-columns:repeat(2,1fr)}}
+.format-card{border:2px solid var(--border-solid);border-radius:var(--radius);background:var(--white);overflow:hidden;transition:var(--transition);position:relative}
+.format-card.selected{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.format-body{padding:24px}
+.format-tag{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.format-card h3{font-size:20px;font-weight:800;letter-spacing:-.3px;margin-bottom:4px}
+.format-price{font-size:28px;font-weight:900;letter-spacing:-.5px;color:var(--navy)}
+.format-price .per{font-size:14px;font-weight:500;color:var(--muted)}
+.format-note{margin-top:12px;font-size:13px;color:var(--muted);line-height:1.5}
+.format-features{list-style:none;margin-top:16px;display:grid;gap:8px}
+.format-features li{display:flex;gap:8px;font-size:14px;color:var(--slate);align-items:flex-start}
+.format-features li::before{content:'';width:18px;height:18px;min-width:18px;border-radius:50%;background:rgba(13,148,136,.1);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%230d9488' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");background-position:center;background-repeat:no-repeat;background-size:10px;margin-top:2px}
+.select-btn{display:block;width:100%;padding:14px;text-align:center;border:none;border-top:1px solid var(--border-solid);background:var(--lighter);font-weight:700;font-size:14px;color:var(--accent);cursor:pointer;transition:var(--transition)}
+.select-btn:hover{background:var(--accent-soft)}
+.format-card.selected .select-btn{background:var(--accent);color:var(--white)}
+
+/* COSTING */
+.costing-section{margin-top:24px}
+.input-card{border:1px solid var(--border-solid);border-radius:var(--radius-sm);background:var(--lighter);padding:20px;margin-bottom:16px}
+.input-grid{display:grid;gap:14px}
+.field label{display:block;font-weight:700;font-size:13px;color:var(--navy);margin-bottom:6px}
+.field input{width:100%;padding:10px 14px;border-radius:var(--radius-sm);border:1px solid var(--border-solid);background:var(--white);font-weight:600;font-size:15px;color:var(--navy);outline:none;transition:var(--transition)}
+.field input:focus{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.field .help{margin-top:4px;font-size:12px;color:var(--muted)}
+.calc-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.calc-btn{padding:8px 14px;border-radius:10px;border:1px solid var(--border-solid);background:var(--white);font-weight:600;font-size:13px;cursor:pointer;transition:var(--transition);color:var(--navy)}
+.calc-btn:hover{background:var(--lighter);border-color:rgba(59,130,246,.2)}
+
+/* RESULT CARDS */
+.results-grid{display:grid;gap:12px}
+.result-card{border:1px solid var(--border-solid);border-radius:var(--radius-sm);padding:16px 20px;background:var(--white)}
+.result-card.highlight{border-color:rgba(59,130,246,.3);background:var(--accent-soft)}
+.result-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.result-value{font-size:22px;font-weight:900;letter-spacing:-.5px;color:var(--navy)}
+.result-sub{display:grid;grid-template-columns:1fr auto;gap:4px 12px;margin-top:8px;font-size:13px;color:var(--muted)}
+.result-sub .val{font-weight:700;text-align:right}
+.result-divider{height:1px;background:var(--border-solid);margin:12px 0}
+.result-note{font-size:12px;color:var(--muted);margin-top:8px}
+
+/* TIMELINE */
+.timeline{list-style:none;display:grid;gap:12px}
+.t-item{display:grid;grid-template-columns:110px 1fr;gap:14px;padding:16px;border:1px solid var(--border-solid);border-radius:var(--radius-sm);background:var(--white)}
+@media(max-width:520px){.t-item{grid-template-columns:1fr}}
+.t-time{font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.t-title{font-weight:700;margin-bottom:4px}
+.t-desc{font-size:14px;color:var(--muted)}
+.t-outcome{margin-top:8px;padding-top:8px;border-top:1px dashed var(--border-solid);font-size:13px;color:var(--slate);font-style:italic}
+
+/* SCHEME TABLE */
+.scheme-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--border-solid);border-radius:var(--radius-sm);overflow:hidden;font-size:14px;background:var(--white)}
+.scheme-table th{background:var(--lighter);color:var(--muted);font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:12px 16px;text-align:left;border-bottom:1px solid var(--border-solid)}
+.scheme-table td{padding:14px 16px;border-bottom:1px solid var(--border-solid);vertical-align:top;color:var(--slate)}
+.scheme-table tr:last-child td{border-bottom:none}
+.scheme-table strong{color:var(--navy)}
+
+/* ACTIVITIES */
+.activity-grid{display:grid;gap:10px}
+@media(min-width:768px){.activity-grid{grid-template-columns:repeat(2,1fr)}}
+details.activity{border:1px solid var(--border-solid);border-radius:var(--radius-sm);background:var(--white);overflow:hidden}
+details.activity[open]{grid-column:1/-1}
+details.activity summary{padding:14px 18px;cursor:pointer;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:space-between}
+details.activity summary::after{content:'';width:8px;height:8px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);transition:var(--transition)}
+details.activity[open] summary::after{transform:rotate(-135deg)}
+details.activity[open] summary{background:var(--lighter);border-bottom:1px solid var(--border-solid)}
+.activity-body{padding:18px;font-size:14px;color:var(--slate);line-height:1.6}
+.activity-body h4{font-size:13px;font-weight:700;color:var(--navy);margin:12px 0 6px;text-transform:uppercase;letter-spacing:.04em}
+.activity-body ul{list-style:none;display:grid;gap:4px}
+.activity-body li{padding-left:14px;position:relative}
+.activity-body li::before{content:'';position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:50%;background:var(--accent)}
+.video-embed{margin-top:12px;border:1px solid var(--border-solid);border-radius:var(--radius-sm);overflow:hidden;background:var(--navy)}
+.video-embed iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+
+/* GALLERY */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:600px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+.gallery-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius-sm);background:var(--lighter)}
+
+/* VIDEO GRID */
+.video-grid{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:768px){.video-grid{grid-template-columns:repeat(2,1fr)}}
+.video-card{border-radius:var(--radius-sm);overflow:hidden;border:1px solid var(--border-solid);background:var(--navy)}
+.video-card iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+
+/* NEXT STEPS */
+.steps-grid{display:grid;gap:16px}
+@media(min-width:768px){.steps-grid{grid-template-columns:repeat(2,1fr)}}
+.step-card{padding:24px;border:1px solid var(--border-solid);border-radius:var(--radius-sm);background:var(--white)}
+.step-card h3{font-size:16px;font-weight:700;margin-bottom:10px}
+.step-card ul{list-style:none;display:grid;gap:6px}
+.step-card li{font-size:14px;color:var(--slate);padding-left:14px;position:relative}
+.step-card li::before{content:'';position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:50%;background:var(--accent)}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:12px;font-size:14px;font-weight:700;transition:var(--transition);border:none;cursor:pointer}
+.btn-primary{background:var(--navy);color:var(--white)}
+.btn-primary:hover{background:var(--navy-light)}
+.btn-secondary{background:var(--white);color:var(--navy);border:1px solid var(--border-solid)}
+.btn-secondary:hover{background:var(--lighter)}
+
+/* FOOTER */
+.footer{padding:32px 0;border-top:1px solid var(--border-solid);background:var(--white);margin-top:48px}
+.footer-inner{display:grid;gap:12px;font-size:13px;color:var(--muted)}
+.footer-inner strong{color:var(--navy)}
+
+/* DECISION STRIP */
+.decision-strip{position:fixed;bottom:0;left:0;right:0;z-index:90;background:rgba(255,255,255,.95);backdrop-filter:blur(20px);border-top:1px solid var(--border-solid);padding:12px 0;transform:translateY(100%);transition:var(--transition)}
+.decision-strip.show{transform:translateY(0)}
+.decision-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.decision-info{display:grid;gap:2px}
+.decision-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.decision-values{font-size:14px;font-weight:600;color:var(--navy)}
+.decision-actions{display:flex;gap:8px;flex-wrap:wrap}
+.decision-btn{padding:8px 16px;border-radius:10px;font-size:13px;font-weight:700;border:1px solid var(--border-solid);background:var(--white);cursor:pointer;transition:var(--transition);color:var(--navy)}
+.decision-btn:hover{background:var(--lighter)}
+.decision-btn.primary{background:var(--accent);color:var(--white);border-color:var(--accent)}
+.decision-btn.primary:hover{background:var(--accent-dark)}
+
+/* TOAST */
+.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);z-index:100;background:var(--navy);color:var(--white);padding:10px 20px;border-radius:999px;font-size:13px;font-weight:600;opacity:0;transition:var(--transition);pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* CALLOUT */
+.callout{border:1px solid rgba(59,130,246,.15);background:var(--accent-soft);border-radius:var(--radius-sm);padding:14px 18px;font-size:14px;color:var(--slate)}
+.callout strong{color:var(--navy)}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .scheme-table{font-size:13px}
+  .scheme-table th,.scheme-table td{padding:10px 12px}
+  .decision-inner{flex-direction:column;align-items:stretch}
+}
+
+/* PRINT */
+@media print{
+  .nav,.decision-strip,.toast,.calc-btns,.select-btn,.actions{display:none!important}
+  body{background:white}
+  .card,.format-card,.result-card,.input-card,.t-item,.step-card{box-shadow:none;border-color:#ddd}
+}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<script>
+const SETTINGS = {
+  preparedFor: "",
+  preparedByName: "Ryan Tan",
+  preparedByOrg: "Exena Learning Hub",
+  preparedByEmail: "ryan@exenalearninghub.org",
+  minimumGroupSize: "Minimum group size: 17 pax"
+};
+</script>
+
+<!-- NAV -->
+<nav class="nav">
+<div class="container">
+<div class="nav-inner">
+  <a href="/" class="nav-brand">exena<span>.</span></a>
+  <div class="nav-links">
+    <a href="/" class="nav-back"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to site</a>
+    <a href="https://wa.me/6596753242?text=Hi%20Ryan%2C%20I've%20reviewed%20the%20proposal" class="nav-cta">Contact Ryan</a>
+  </div>
+</div>
+</div>
+</nav>
+
+<!-- HEADER -->
+<header class="page-header">
+<div class="container">
+  <h1>Team Bonding Workshop Proposal</h1>
+  <p>A learning-led workshop designed to strengthen collaboration, communication, and alignment — with interactive costing.</p>
+  <div class="meta-grid" style="margin-top:20px">
+    <div class="meta-row" id="preparedForRow"><strong>Prepared for</strong><span data-var="preparedFor">Organisation</span></div>
+    <div class="meta-row"><strong>Prepared by</strong><span><span data-var="preparedByName">Ryan Tan</span> | <span data-var="preparedByOrg">Exena Learning Hub</span></span></div>
+    <div class="meta-row"><strong>Contact</strong><span data-var="preparedByEmail">ryan@exenalearninghub.org</span></div>
+  </div>
+</div>
+</header>
+
+<!-- OUTCOMES -->
+<section class="section" id="outcomes">
+<div class="container">
+<div class="section-title"><h2>Customisable Outcomes</h2><span class="hint">What the team takes forward after the session</span></div>
+<div style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+  <div class="card"><div class="card-pad">
+    <h3 style="font-size:16px;font-weight:700;margin-bottom:10px">Learning Outcomes</h3>
+    <ul style="list-style:none;display:grid;gap:6px">
+      <li style="font-size:14px;color:var(--slate);padding-left:14px;position:relative"><span style="position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:50%;background:var(--accent);display:block"></span>Communicate clearly under time pressure and uncertainty</li>
+      <li style="font-size:14px;color:var(--slate);padding-left:14px;position:relative"><span style="position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:50%;background:var(--accent);display:block"></span>Strengthen coordination, handovers, and shared accountability</li>
+      <li style="font-size:14px;color:var(--slate);padding-left:14px;position:relative"><span style="position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:50%;background:var(--accent);display:block"></span>Practise feedback and conflict handling with practical tools</li>
+    </ul>
+  </div></div>
+  <div class="card"><div class="card-pad">
+    <h3 style="font-size:16px;font-weight:700;margin-bottom:10px">What Changes After</h3>
+    <ul style="list-style:none;display:grid;gap:6px">
+      <li style="font-size:14px;color:var(--slate);padding-left:14px;position:relative"><span style="position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:50%;background:var(--teal);display:block"></span>A shared set of team norms and communication agreements</li>
+      <li style="font-size:14px;color:var(--slate);padding-left:14px;position:relative"><span style="position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:50%;background:var(--teal);display:block"></span>Clearer escalation and decision points</li>
+      <li style="font-size:14px;color:var(--slate);padding-left:14px;position:relative"><span style="position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:50%;background:var(--teal);display:block"></span>Practical actions owned for the next 2 to 4 weeks</li>
+    </ul>
+  </div></div>
+  <div class="card"><div class="card-pad">
+    <h3 style="font-size:16px;font-weight:700;margin-bottom:10px">What You Decide Today</h3>
+    <ul style="list-style:none;display:grid;gap:6px">
+      <li style="font-size:14px;color:var(--slate);padding-left:14px;position:relative"><span style="position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:50%;background:var(--navy);display:block"></span>Format: Option A (1 day) or Option B (2 day)</li>
+      <li style="font-size:14px;color:var(--slate);padding-left:14px;position:relative"><span style="position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:50%;background:var(--navy);display:block"></span>Headcount split: SC/SPR and non-locals</li>
+      <li style="font-size:14px;color:var(--slate);padding-left:14px;position:relative"><span style="position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:50%;background:var(--navy);display:block"></span>SFEC balance (for indicative reimbursement)</li>
+    </ul>
+  </div></div>
+</div>
+</div>
+</section>
+
+<!-- FORMATS -->
+<section class="section" id="formats">
+<div class="container">
+<div class="section-title"><h2>Workshop Formats</h2><span class="hint">Choose what fits your time and intensity</span></div>
+<div class="format-grid">
+  <!-- Option A -->
+  <div class="format-card" data-option="a">
+    <div class="format-body">
+      <div class="format-tag">Option A</div>
+      <h3>1-Day Team Bonding Workshop</h3>
+      <div class="format-price">S$60 <span class="per">/ pax (SC/SPR)</span></div>
+      <div class="format-note"><strong>Non-local rate:</strong> S$200 / pax</div>
+      <ul class="format-features">
+        <li>WSQ-accredited, structured 1-day session</li>
+        <li>Enhanced Training Support (70% funding)</li>
+        <li>Absentee Payroll + SFEC + EIS eligible</li>
+        <li>Learning-led challenges with structured debriefs</li>
+        <li>Ends with clear actions and agreed team norms</li>
+      </ul>
+    </div>
+    <button class="select-btn" data-select="a">Select Option A</button>
+    <!-- Costing -->
+    <details class="costing-section" style="border-top:1px solid var(--border-solid)">
+      <summary class="card-header">Indicative Costing Calculator</summary>
+      <div class="card-pad">
+        <div class="input-card">
+          <div class="input-grid">
+            <div class="field"><label for="a_locals">SC/SPR participants (locals)</label><input id="a_locals" type="number" inputmode="numeric" value="17" min="0" step="1"/><div class="help">Training fee: <strong>S$60</strong> per pax</div></div>
+            <div class="field"><label for="a_nonlocals">Non-local participants</label><input id="a_nonlocals" type="number" inputmode="numeric" value="0" min="0" step="1"/><div class="help">Training fee: <strong>S$200</strong> per pax</div></div>
+            <div class="field"><label for="a_sfec_balance">SFEC balance</label><input id="a_sfec_balance" type="number" inputmode="numeric" value="0" min="0" step="1" placeholder="Enter available SFEC balance"/><div class="help">Reimbursement estimated at <strong>90%</strong>, capped by balance</div></div>
+          </div>
+          <div class="calc-btns">
+            <button class="calc-btn" data-action="example" data-calc="a">Use example</button>
+            <button class="calc-btn" data-action="reset" data-calc="a">Reset</button>
+            <button class="calc-btn" data-action="copy" data-calc="a">Copy summary</button>
+          </div>
+        </div>
+        <div class="results-grid">
+          <div class="result-card"><div class="result-label">Total Training Fee</div><div class="result-value" data-out="a_total_fee">$0</div>
+            <div class="result-sub"><span>SC/SPR (<span data-out="a_locals_count">0</span> x $60)</span><span class="val" data-out="a_locals_fee">$0</span><span>Non-locals (<span data-out="a_nonlocals_count">0</span> x $200)</span><span class="val" data-out="a_nonlocals_fee">$0</span></div>
+          </div>
+          <div class="result-card"><div class="result-label">Funding Offsets</div>
+            <div class="result-sub"><span>Absentee Payroll (locals)</span><span class="val" data-out="a_absentee">-$0</span><span>SFEC (90%, capped)</span><span class="val" data-out="a_sfec">-$0</span><span style="font-weight:700;color:var(--navy)">Total offsets</span><span class="val" style="font-weight:700;color:var(--navy)" data-out="a_total_claims">-$0</span></div>
+            <div class="result-note" data-out="a_sfec_note"></div>
+          </div>
+          <div class="result-card highlight"><div class="result-label">Net Cash Position After Claims</div><div class="result-value" data-out="a_net_cash">Out-of-pocket $0</div></div>
+          <div class="result-card"><div class="result-label">Tax Illustration (EIS)</div>
+            <div class="result-sub"><span>Deduction (400%)</span><span class="val" data-out="a_eis_deduction">$0</span><span>Tax saving (17%)</span><span class="val" data-out="a_tax_saving">$0</span></div>
+            <div class="result-divider"></div>
+            <div class="result-label">Overall Effective Position</div><div class="result-value" data-out="a_effective">Out-of-pocket $0</div>
+            <div class="result-note">Figures are indicative. Eligibility depends on prevailing requirements and organisation profile.</div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+  <!-- Option B -->
+  <div class="format-card" data-option="b">
+    <div class="format-body">
+      <div class="format-tag">Option B — Best Value</div>
+      <h3>2-Day Team Learning Workshop</h3>
+      <div class="format-price">S$180 <span class="per">/ pax (SC/SPR)</span></div>
+      <div class="format-note"><strong>Non-local rate:</strong> S$600 / pax. Inclusive of venue, tea breaks and lunch for 28+ pax.</div>
+      <ul class="format-features">
+        <li>WSQ-accredited, immersive 2-day programme</li>
+        <li>Inclusive of venue (Hotels/Resorts)</li>
+        <li>Enhanced Training Support (70% funding)</li>
+        <li>Deeper skills practice and structured reflection</li>
+        <li>Action planning to embed learning post-session</li>
+      </ul>
+    </div>
+    <button class="select-btn" data-select="b">Select Option B</button>
+    <details class="costing-section" style="border-top:1px solid var(--border-solid)">
+      <summary class="card-header">Indicative Costing Calculator</summary>
+      <div class="card-pad">
+        <div class="input-card">
+          <div class="input-grid">
+            <div class="field"><label for="b_locals">SC/SPR participants (locals)</label><input id="b_locals" type="number" inputmode="numeric" value="17" min="0" step="1"/><div class="help">Training fee: <strong>S$180</strong> per pax</div></div>
+            <div class="field"><label for="b_nonlocals">Non-local participants</label><input id="b_nonlocals" type="number" inputmode="numeric" value="0" min="0" step="1"/><div class="help">Training fee: <strong>S$600</strong> per pax</div></div>
+            <div class="field"><label for="b_sfec_balance">SFEC balance</label><input id="b_sfec_balance" type="number" inputmode="numeric" value="0" min="0" step="1" placeholder="Enter available SFEC balance"/><div class="help">Reimbursement estimated at <strong>90%</strong>, capped by balance</div></div>
+          </div>
+          <div class="calc-btns">
+            <button class="calc-btn" data-action="example" data-calc="b">Use example</button>
+            <button class="calc-btn" data-action="reset" data-calc="b">Reset</button>
+            <button class="calc-btn" data-action="copy" data-calc="b">Copy summary</button>
+          </div>
+        </div>
+        <div class="results-grid">
+          <div class="result-card"><div class="result-label">Total Training Fee</div><div class="result-value" data-out="b_total_fee">$0</div>
+            <div class="result-sub"><span>SC/SPR (<span data-out="b_locals_count">0</span> x $180)</span><span class="val" data-out="b_locals_fee">$0</span><span>Non-locals (<span data-out="b_nonlocals_count">0</span> x $600)</span><span class="val" data-out="b_nonlocals_fee">$0</span></div>
+          </div>
+          <div class="result-card"><div class="result-label">Funding Offsets</div>
+            <div class="result-sub"><span>Absentee Payroll (locals)</span><span class="val" data-out="b_absentee">-$0</span><span>SFEC (90%, capped)</span><span class="val" data-out="b_sfec">-$0</span><span style="font-weight:700;color:var(--navy)">Total offsets</span><span class="val" style="font-weight:700;color:var(--navy)" data-out="b_total_claims">-$0</span></div>
+            <div class="result-note" data-out="b_sfec_note"></div>
+          </div>
+          <div class="result-card highlight"><div class="result-label">Net Cash Position After Claims</div><div class="result-value" data-out="b_net_cash">Out-of-pocket $0</div></div>
+          <div class="result-card"><div class="result-label">Tax Illustration (EIS)</div>
+            <div class="result-sub"><span>Deduction (400%)</span><span class="val" data-out="b_eis_deduction">$0</span><span>Tax saving (17%)</span><span class="val" data-out="b_tax_saving">$0</span></div>
+            <div class="result-divider"></div>
+            <div class="result-label">Overall Effective Position</div><div class="result-value" data-out="b_effective">Out-of-pocket $0</div>
+            <div class="result-note">Figures are indicative. Eligibility depends on prevailing requirements and organisation profile.</div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+</div>
+<div class="callout" style="margin-top:20px"><strong>Group size note:</strong> Minimum group size is <strong>17 pax</strong>. Activity selection is customised to headcount, venue, and objectives.</div>
+</div>
+</section>
+
+<!-- SCHEMES -->
+<section class="section" id="schemes">
+<div class="container">
+<div class="section-title"><h2>Government Schemes</h2><span class="hint">Subject to eligibility and approval</span></div>
+<div style="overflow-x:auto">
+<table class="scheme-table">
+<thead><tr><th>Scheme</th><th>Primary Benefit</th><th>What It Offsets</th></tr></thead>
+<tbody>
+<tr><td><strong>WSQ Course Fee Subsidy</strong></td><td>Subsidised training for eligible participants</td><td>Course fee (training fee), subject to eligibility</td></tr>
+<tr><td><strong>Absentee Payroll</strong></td><td>Reimbursement for wage cost during training</td><td>Eligible wage cost for eligible employees</td></tr>
+<tr><td><strong>SkillsFuture Enterprise Credit (SFEC)</strong></td><td>Credit offsetting eligible out-of-pocket costs</td><td>Training-related costs (subject to SFEC scope and balance)</td></tr>
+<tr><td><strong>Enterprise Innovation Scheme (EIS)</strong></td><td>Tax support for qualifying activities</td><td>Enhanced tax deduction + cash payout for qualifying expenditure</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- PROGRAMME FLOW -->
+<section class="section" id="agenda">
+<div class="container">
+<div class="section-title"><h2>Generic 1-Day Programme Flow</h2><span class="hint">Customised to your objectives</span></div>
+<ol class="timeline">
+  <li class="t-item"><div class="t-time">8:45–9:15</div><div><div class="t-title">Arrival &amp; Attendance</div><div class="t-desc">Registration, settling in, and briefing on the day's flow.</div></div></li>
+  <li class="t-item"><div class="t-time">9:15–10:00</div><div><div class="t-title">Opening &amp; Contextualisation</div><div class="t-desc">Workshop objectives, roles, and rules of engagement.</div><div class="t-outcome">Shared expectations and psychological safety.</div></div></li>
+  <li class="t-item"><div class="t-time">10:00–10:30</div><div><div class="t-title">Ice Breaker &amp; Team Challenge</div><div class="t-desc">Challenge testing coordination and communication under pressure.</div><div class="t-outcome">Insights into roles, assumptions, and team habits.</div></div></li>
+  <li class="t-item"><div class="t-time">10:30–12:15</div><div><div class="t-title">Values into Action</div><div class="t-desc">Interactive exercise linking behaviours, performance, and norms.</div><div class="t-outcome">Draft team norms and working principles.</div></div></li>
+  <li class="t-item"><div class="t-time">12:15–12:30</div><div><div class="t-title">Debrief &amp; Reflection</div><div class="t-desc">What's working, what's not, what needs to change.</div><div class="t-outcome">Agreed priorities and improvement themes.</div></div></li>
+  <li class="t-item"><div class="t-time">12:30–1:30</div><div><div class="t-title">Lunch</div><div class="t-desc">Break and informal connection.</div></div></li>
+  <li class="t-item"><div class="t-time">1:30–2:30</div><div><div class="t-title">Know Yourself, Know Your Team</div><div class="t-desc">Communication and working styles exercise.</div><div class="t-outcome">Empathy, fewer misunderstandings, clearer preferences.</div></div></li>
+  <li class="t-item"><div class="t-time">2:30–3:30</div><div><div class="t-title">Synergy Challenge</div><div class="t-desc">Problem-solving requiring teamwork and adaptability.</div><div class="t-outcome">Alignment, speed, escalation, and decision points.</div></div></li>
+  <li class="t-item"><div class="t-time">3:30–3:45</div><div><div class="t-title">Tea Break</div><div class="t-desc">Short break.</div></div></li>
+  <li class="t-item"><div class="t-time">3:45–4:30</div><div><div class="t-title">Overcoming Challenges</div><div class="t-desc">Handling pressure, setbacks, and change as one team.</div><div class="t-outcome">Tools and language for resilience.</div></div></li>
+  <li class="t-item"><div class="t-time">4:30–5:15</div><div><div class="t-title">Transfer of Learning</div><div class="t-desc">Debrief, reinforcement, and practical action planning.</div></div></li>
+  <li class="t-item"><div class="t-time">5:15–5:30</div><div><div class="t-title">Final Debrief &amp; Close</div><div class="t-desc">Individual commitments and next steps.</div><div class="t-outcome">Post-programme review.</div></div></li>
+</ol>
+</div>
+</section>
+
+<!-- ACTIVITIES -->
+<section class="section" id="activities">
+<div class="container">
+<div class="section-title"><h2>Activity Options</h2><span class="hint">Click to expand for details and video preview</span></div>
+<div style="display:flex;gap:8px;margin-bottom:16px"><button class="calc-btn" id="expandAll">Expand all</button><button class="calc-btn" id="collapseAll">Collapse all</button></div>
+<div class="activity-grid">
+  <details class="activity"><summary>CSI: The Deeper Truth</summary><div class="activity-body">Crime scene challenge — gather clues, align on a solution under time pressure.<h4>Learning Outcomes</h4><ul><li>Active listening and accurate information sharing</li><li>Consensus building and evidence-based decisions</li><li>Role clarity and accountability</li></ul><div class="video-embed"><iframe data-src="https://drive.google.com/file/d/1Z9qeLSS7kv9od2PXAUn0cf7Lcu8P6IzL/preview" allow="autoplay; encrypted-media" allowfullscreen title="CSI video"></iframe></div></div></details>
+  <details class="activity"><summary>Domino: Cause &amp; Effect</summary><div class="activity-body">Build a domino system where every handover matters.<h4>Learning Outcomes</h4><ul><li>Systems thinking and process discipline</li><li>Shared responsibility across sub-teams</li><li>Communication and coordination</li></ul><div class="video-embed"><iframe data-src="https://drive.google.com/file/d/1oTwcMX4Iq9aw2KeBC9RF_hxx1ZCD9wEP/preview" allow="autoplay; encrypted-media" allowfullscreen title="Domino video"></iframe></div></div></details>
+  <details class="activity"><summary>A Minute 2 Win It</summary><div class="activity-body">Fast-paced mini games testing agility and leadership.<h4>Learning Outcomes</h4><ul><li>Adaptability in rapidly changing situations</li><li>Communication under time pressure</li><li>Team engagement and resilience</li></ul><div class="video-embed"><iframe data-src="https://drive.google.com/file/d/1Xcmpt91PI8IKcJZbuhkZK4MG9hBP3e1o/preview" allow="autoplay; encrypted-media" allowfullscreen title="Minute 2 Win It video"></iframe></div></div></details>
+  <details class="activity"><summary>Boom Shakalaka</summary><div class="activity-body">Rhythm and coordination experience for shared performance.<h4>Learning Outcomes</h4><ul><li>Coordination and execution discipline</li><li>Role clarity and shared accountability</li><li>Working towards milestones together</li></ul><div class="video-embed"><iframe data-src="https://drive.google.com/file/d/1WpPuZ8Eo7JM_ptR16dQWQMNq4Wp71-pf/preview" allow="autoplay; encrypted-media" allowfullscreen title="Boom Shakalaka video"></iframe></div></div></details>
+  <details class="activity"><summary>The Fish Market</summary><div class="activity-body">Customer experience simulation — manage trade-offs under constraints.<h4>Learning Outcomes</h4><ul><li>Alignment on roles and handovers</li><li>Decision-making under constraints</li><li>Service standards and improvement</li></ul><div class="video-embed"><iframe data-src="https://drive.google.com/file/d/1FFXwsizw3CRm6VoeI7v9FUuL1witfW38/preview" allow="autoplay; encrypted-media" allowfullscreen title="Fish Market video"></iframe></div></div></details>
+  <details class="activity"><summary>How the Ant Moved a Mountain</summary><div class="activity-body">Coordination and trust through synchronisation and clear responsibilities.<h4>Learning Outcomes</h4><ul><li>Trust building and leadership in action</li><li>Clear roles and communication systems</li><li>Team-first mindset</li></ul><div class="video-embed"><iframe data-src="https://drive.google.com/file/d/12wrlz6TmqWBMmyeSd6Y6iccToxBEYvLU/preview" allow="autoplay; encrypted-media" allowfullscreen title="Ant Mountain video"></iframe></div></div></details>
+  <details class="activity"><summary>Bridging Teamwork</summary><div class="activity-body">Build a bridge under time pressure with coordinated execution.<h4>Learning Outcomes</h4><ul><li>Project coordination and time management</li><li>Ownership under constraints</li><li>Execution discipline</li></ul><div class="video-embed"><iframe data-src="https://drive.google.com/file/d/1RbKQ3jrKrik8sZeCNQ361j69NG6JBIfG/preview" allow="autoplay; encrypted-media" allowfullscreen title="Bridging video"></iframe></div></div></details>
+  <details class="activity"><summary>Paint Our Masterpiece</summary><div class="activity-body">Reproduce a shared artwork through split roles and coordination.<h4>Learning Outcomes</h4><ul><li>Shared vision and coordination</li><li>Time and resource management</li><li>Practical collaboration</li></ul><div class="video-embed"><iframe data-src="https://drive.google.com/file/d/10O3IbmOY-8jeEzFn-WkOa2SjmTeIX_O4/preview" allow="autoplay; encrypted-media" allowfullscreen title="Paint Masterpiece video"></iframe></div></div></details>
+  <details class="activity"><summary>Amazing Race: Food &amp; Heritage</summary><div class="activity-body">Guided exploration combining teamwork with local discovery.<h4>Learning Outcomes</h4><ul><li>Coordination and decision-making</li><li>Team camaraderie through exploration</li><li>Communication under constraints</li></ul><div class="video-embed"><iframe data-src="https://drive.google.com/file/d/1jR5l0aPsmTRvnWY4JHOgPBB_X0sKcoB7/preview" allow="autoplay; encrypted-media" allowfullscreen title="Amazing Race video"></iframe></div></div></details>
+  <details class="activity"><summary>The Running Man Race</summary><div class="activity-body">Points-based race reinforcing cooperation as the real win.<h4>Learning Outcomes</h4><ul><li>Cooperation across sub-teams</li><li>Overcoming fear of mistakes</li><li>Responsibility for team welfare</li></ul><div class="video-embed"><iframe data-src="https://drive.google.com/file/d/1fn0ZquftpHChJTtX6vdkkgE4KRf0itfO/preview" allow="autoplay; encrypted-media" allowfullscreen title="Running Man video"></iframe></div></div></details>
+</div>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section class="section" id="gallery">
+<div class="container">
+<div class="section-title"><h2>Photo Gallery</h2><span class="hint">Past engagements</span></div>
+<div class="gallery-grid" id="galleryGrid">
+  <img class="gallery-img" alt="Engagement 1" data-src="https://drive.google.com/thumbnail?id=180eHi40_RVOlPefCRYZcXleSfw7IheCt&sz=w600" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" loading="lazy"/>
+  <img class="gallery-img" alt="Engagement 2" data-src="https://drive.google.com/thumbnail?id=1Nsp1HeELtcO-O1Qqromz1Y4HlUAMMsqb&sz=w600" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" loading="lazy"/>
+  <img class="gallery-img" alt="Engagement 3" data-src="https://drive.google.com/thumbnail?id=13lECzHvNZtnOwix7Keh6fAx9u87gOyOE&sz=w600" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" loading="lazy"/>
+  <img class="gallery-img" alt="Engagement 4" data-src="https://drive.google.com/thumbnail?id=1g0-skbEdpv5Jaw90DwvNcEWQs5v_pXgj&sz=w600" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" loading="lazy"/>
+  <img class="gallery-img" alt="Engagement 5" data-src="https://drive.google.com/thumbnail?id=1fgC3wuEgOaK8FfSaHBHuSQfEsrF2ftBu&sz=w600" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" loading="lazy"/>
+  <img class="gallery-img" alt="Engagement 6" data-src="https://drive.google.com/thumbnail?id=11jgHHwJetHoINUGNh_m_sT3oTnF3W9Zx&sz=w600" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" loading="lazy"/>
+  <img class="gallery-img" alt="Engagement 7" data-src="https://drive.google.com/thumbnail?id=1OLkNg9LaCDKE7ObJ-W1Y-hUPO6rwySfD&sz=w600" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" loading="lazy"/>
+  <img class="gallery-img" alt="Engagement 8" data-src="https://drive.google.com/thumbnail?id=18GTFNWSu4C1s4zRC9xU3qUY4RK8bWBoJ&sz=w600" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" loading="lazy"/>
+  <img class="gallery-img" alt="Engagement 9" data-src="https://drive.google.com/thumbnail?id=10BBAm7_Gc6p_5mjmTMWG17XosyK3nFmW&sz=w600" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" loading="lazy"/>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials">
+<div class="container">
+<div class="section-title"><h2>Client Reflections</h2><span class="hint">Short clips from past engagements</span></div>
+<div class="video-grid" id="videoGrid">
+  <div class="video-card"><iframe data-src="https://drive.google.com/file/d/1iPfZ2v0EXAXWwOgPLANmCj1AxoZOpDAz/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="Testimonial 1"></iframe></div>
+  <div class="video-card"><iframe data-src="https://drive.google.com/file/d/1Hra7JmxVBNGNHI2mDtQUA25RGiGvJs2p/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="Testimonial 2"></iframe></div>
+  <div class="video-card"><iframe data-src="https://drive.google.com/file/d/1kVomeWJ0XUHS-WI5EqScVcQ8yDfR-ME_/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="Testimonial 3"></iframe></div>
+  <div class="video-card"><iframe data-src="https://drive.google.com/file/d/1U_EurbKhgaZbiCHwchvKDn7qsfOzRh9V/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="Testimonial 4"></iframe></div>
+</div>
+</div>
+</section>
+
+<!-- NEXT STEPS -->
+<section class="section" id="next">
+<div class="container">
+<div class="section-title"><h2>Next Steps</h2><span class="hint">To finalise delivery and costing</span></div>
+<div class="steps-grid">
+  <div class="step-card">
+    <h3>To Proceed</h3>
+    <ul>
+      <li>Confirm workshop format: 1-day or 2-day</li>
+      <li>Confirm preferred timeframe and venue</li>
+      <li>Share context on team challenges for tailored debriefs</li>
+    </ul>
+  </div>
+  <div class="step-card">
+    <h3>What We Need From You</h3>
+    <ul>
+      <li>SC/SPR and non-local headcount for eligibility checks</li>
+      <li>Available SFEC balance (for indicative capping)</li>
+      <li>Nominate a point of contact for coordination</li>
+      <li>Align workshop schedule to minimise disruption</li>
+    </ul>
+  </div>
+</div>
+<div class="actions">
+  <a href="#" id="emailLink" class="btn btn-primary">Email to confirm details</a>
+  <a href="javascript:window.print()" class="btn btn-secondary">Print / Save as PDF</a>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container">
+<div class="footer-inner">
+  <div><strong>Prepared by:</strong> <span data-var="preparedByOrg">Exena Learning Hub</span> | <span data-var="preparedByName">Ryan Tan</span> | <span data-var="preparedByEmail">ryan@exenalearninghub.org</span></div>
+  <div><strong>Disclaimer:</strong> Figures are for discussion. Funding eligibility, credits, and claims are subject to prevailing scheme conditions, participant profile, and agency approval.</div>
+</div>
+</div>
+</footer>
+
+<!-- DECISION STRIP -->
+<div class="decision-strip" id="decisionStrip">
+<div class="container">
+<div class="decision-inner">
+  <div class="decision-info">
+    <div class="decision-label">Selected</div>
+    <div class="decision-values"><span id="decisionOption">Not selected</span> &middot; <span id="decisionHeadcount">Locals 0, Non-locals 0</span> &middot; <span id="decisionNet">Net: $0</span></div>
+  </div>
+  <div class="decision-actions">
+    <button class="decision-btn" id="copyDecision">Copy</button>
+    <a class="decision-btn primary" href="#" id="emailDecision">Email Ryan</a>
+  </div>
+</div>
+</div>
+</div>
+<div class="toast" id="toast">Copied</div>
+
+<script>
+// Apply settings
+(function(){
+  const map = {
+    preparedFor: SETTINGS.preparedFor,
+    preparedByName: SETTINGS.preparedByName,
+    preparedByOrg: SETTINGS.preparedByOrg,
+    preparedByEmail: SETTINGS.preparedByEmail,
+    minimumGroupSize: SETTINGS.minimumGroupSize
+  };
+  document.querySelectorAll('[data-var]').forEach(el => {
+    const key = el.getAttribute('data-var');
+    if(map[key] !== undefined) el.textContent = map[key];
+  });
+  const row = document.getElementById('preparedForRow');
+  if(row && (!SETTINGS.preparedFor || SETTINGS.preparedFor.trim() === '')) row.style.display = 'none';
+
+  const subject = encodeURIComponent('Team Bonding Workshop - Next Steps');
+  const body = encodeURIComponent(`Hi,\n\nSharing the proposal page here.\n\nTo proceed, could you confirm:\n1) Preferred format (1 day or 2 day)\n2) Headcount (minimum 17 pax) and participant profile\n3) Preferred timeframe and venue\n4) Point of contact\n\nBest regards,\n${SETTINGS.preparedByName}\n${SETTINGS.preparedByOrg}\n`);
+  const link = document.getElementById('emailLink');
+  if(link) link.href = `mailto:${SETTINGS.preparedByEmail}?subject=${subject}&body=${body}`;
+})();
+
+// Costing calculator
+(function(){
+  const OPTIONS = {
+    a: { label: 'Option A (1 day)', localFee: 60, nonlocalFee: 200, absenteePerLocal: 36 },
+    b: { label: 'Option B (2 day)', localFee: 180, nonlocalFee: 600, absenteePerLocal: 69 }
+  };
+  function round(n){ return Math.round(Number(n)||0); }
+  function money(n){ return '$'+round(n).toLocaleString('en-SG'); }
+  function claim(n){ return '-$'+round(Math.abs(n)).toLocaleString('en-SG'); }
+  function position(n){
+    const v = round(Math.abs(n));
+    return (n>=0?'Surplus ':'Out-of-pocket ')+'$'+v.toLocaleString('en-SG');
+  }
+
+  function compute(prefix){
+    const cfg = OPTIONS[prefix]; if(!cfg) return null;
+    const locals = Math.max(0,parseInt(document.getElementById(prefix+'_locals')?.value||'0',10)||0);
+    const nonlocals = Math.max(0,parseInt(document.getElementById(prefix+'_nonlocals')?.value||'0',10)||0);
+    const sfecBalance = Math.max(0,parseFloat(document.getElementById(prefix+'_sfec_balance')?.value||'0')||0);
+    const localsFee = locals*cfg.localFee;
+    const nonlocalsFee = nonlocals*cfg.nonlocalFee;
+    const totalFee = localsFee+nonlocalsFee;
+    const absentee = locals*cfg.absenteePerLocal;
+    const sfecEligible = 0.90*totalFee;
+    const sfec = Math.min(sfecEligible,sfecBalance);
+    let sfecNote = '';
+    if(totalFee<=0) sfecNote='';
+    else if(sfecBalance<=0) sfecNote='SFEC balance not provided.';
+    else if(sfecEligible>sfecBalance) sfecNote='Capped by available SFEC balance.';
+    else sfecNote='Based on 90% estimate, subject to approval.';
+    const totalClaims = absentee+sfec;
+    const netCash = totalClaims-totalFee;
+    const eisDeduction = 4.0*totalFee;
+    const taxSaving = 0.17*eisDeduction;
+    const effective = netCash+taxSaving;
+    return {prefix,locals,nonlocals,sfecBalance,totalFee,localsFee,nonlocalsFee,absentee,sfec,sfecNote,totalClaims,netCash,eisDeduction,taxSaving,effective};
+  }
+
+  function render(prefix){
+    const d = compute(prefix); if(!d) return;
+    const set = (k,v) => { const el=document.querySelector(`[data-out="${prefix}_${k}"]`); if(el) el.textContent=v; };
+    set('locals_count',d.locals);set('nonlocals_count',d.nonlocals);
+    set('locals_fee',money(d.localsFee));set('nonlocals_fee',money(d.nonlocalsFee));
+    set('total_fee',money(d.totalFee));
+    set('absentee',claim(d.absentee));set('sfec',claim(d.sfec));set('sfec_note',d.sfecNote);
+    set('total_claims',claim(d.totalClaims));set('net_cash',position(d.netCash));
+    set('eis_deduction',money(d.eisDeduction));set('tax_saving',money(d.taxSaving));set('effective',position(d.effective));
+  }
+
+  ['a','b'].forEach(p=>{
+    ['locals','nonlocals','sfec_balance'].forEach(s=>{
+      const el=document.getElementById(p+'_'+s);
+      if(el) el.addEventListener('input',()=>{render(p);if(selected===p) updateDecision();});
+    });
+    render(p);
+  });
+
+  let selected=null;
+  const strip=document.getElementById('decisionStrip');
+  const optEl=document.getElementById('decisionOption');
+  const hcEl=document.getElementById('decisionHeadcount');
+  const netEl=document.getElementById('decisionNet');
+  const copyBtn=document.getElementById('copyDecision');
+  const emailBtn=document.getElementById('emailDecision');
+  const toast=document.getElementById('toast');
+  let tt=null;
+  function showToast(m){if(!toast)return;toast.textContent=m;toast.classList.add('show');if(tt)clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('show'),1400);}
+
+  function buildSummary(d){
+    if(!d) return '';
+    const cfg=OPTIONS[d.prefix];
+    return [
+      `Format: ${cfg.label}`,`SC/SPR: ${d.locals}`,`Non-local: ${d.nonlocals}`,`SFEC balance: ${money(d.sfecBalance)}`,
+      '',`Total fee: ${money(d.totalFee)}`,`Absentee Payroll: ${money(d.absentee)}`,`SFEC: ${money(d.sfec)}`,
+      `Net cash: ${position(d.netCash)}`,
+      '',`EIS deduction: ${money(d.eisDeduction)}`,`Tax saving: ${money(d.taxSaving)}`,`Effective: ${position(d.effective)}`
+    ].join('\n');
+  }
+
+  async function copy(text){
+    if(!text)return;
+    try{await navigator.clipboard.writeText(text);showToast('Copied');}
+    catch(e){const ta=document.createElement('textarea');ta.value=text;ta.style.cssText='position:fixed;left:-9999px';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');showToast('Copied');}catch(err){showToast('Copy failed');}document.body.removeChild(ta);}
+  }
+
+  function updateDecision(){
+    if(!selected){if(strip)strip.classList.remove('show');return;}
+    const d=compute(selected);if(!d)return;
+    if(optEl) optEl.textContent=OPTIONS[selected].label;
+    if(hcEl) hcEl.textContent=`Locals ${d.locals}, Non-locals ${d.nonlocals}`;
+    if(netEl) netEl.textContent=`Net: ${position(d.netCash)}`;
+    const s=encodeURIComponent('Team Bonding Workshop - Next steps');
+    const b=encodeURIComponent(`Hi Ryan,\n\nWe'd like to proceed.\n\n${buildSummary(d)}\n\nPreferred dates / venue:\n- \n\nRegards,\n`);
+    const mailto=`mailto:${SETTINGS.preparedByEmail}?subject=${s}&body=${b}`;
+    if(emailBtn) emailBtn.href=mailto;
+    const el2=document.getElementById('emailLink');
+    if(el2) el2.href=mailto;
+  }
+
+  document.querySelectorAll('[data-select]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const p=btn.getAttribute('data-select');
+      selected=p;
+      document.querySelectorAll('.format-card').forEach(c=>c.classList.remove('selected'));
+      const card=document.querySelector(`.format-card[data-option="${p}"]`);
+      if(card)card.classList.add('selected');
+      if(strip)strip.classList.add('show');
+      updateDecision();
+    });
+  });
+
+  document.querySelectorAll('[data-calc][data-action]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const p=btn.getAttribute('data-calc'),a=btn.getAttribute('data-action');
+      if(a==='example'){
+        const l=document.getElementById(p+'_locals'),n=document.getElementById(p+'_nonlocals'),s=document.getElementById(p+'_sfec_balance');
+        if(l)l.value=17;if(n)n.value=0;if(s)s.value=10000;showToast('Example applied');
+      }
+      if(a==='reset'){
+        const l=document.getElementById(p+'_locals'),n=document.getElementById(p+'_nonlocals'),s=document.getElementById(p+'_sfec_balance');
+        if(l)l.value=0;if(n)n.value=0;if(s)s.value=0;showToast('Reset');
+      }
+      if(a==='copy'){copy(buildSummary(compute(p)));}
+      render(p);if(selected===p)updateDecision();
+    });
+  });
+
+  if(copyBtn) copyBtn.addEventListener('click',()=>{
+    if(!selected){showToast('Select an option first');return;}
+    copy(buildSummary(compute(selected)));
+  });
+})();
+
+// Lazy load
+(function(){
+  function loadMedia(root){
+    if(!root)return;
+    root.querySelectorAll('[data-src]').forEach(el=>{
+      if(!el.getAttribute('src')||el.getAttribute('src').startsWith('data:')){
+        el.src=el.getAttribute('data-src');el.removeAttribute('data-src');
+      }
+    });
+  }
+  document.querySelectorAll('details.activity').forEach(d=>{
+    d.addEventListener('toggle',()=>{if(d.open)loadMedia(d);});
+  });
+  document.getElementById('expandAll')?.addEventListener('click',()=>{
+    document.querySelectorAll('details.activity').forEach(d=>{d.open=true;loadMedia(d);});
+  });
+  document.getElementById('collapseAll')?.addEventListener('click',()=>{
+    document.querySelectorAll('details.activity').forEach(d=>{d.open=false;});
+  });
+
+  // Gallery + video lazy load via IntersectionObserver
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){loadMedia(e.target);obs.unobserve(e.target);}});
+  },{rootMargin:'200px'});
+  document.querySelectorAll('#galleryGrid, #videoGrid').forEach(el=>obs.observe(el));
+})();
+
+// Reveal on scroll
+const revealObs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+</script>
+</body>
+</html>
