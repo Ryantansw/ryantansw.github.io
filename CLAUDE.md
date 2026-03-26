@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Static GitHub Pages website for **Exena Learning Hub** — a Singapore-based WSQ-accredited team bonding workshop and training organisation. Hosted at `teamworkshops.exenalearninghub.org`.
+Static GitHub Pages website for **Exena Learning Hub**  - a Singapore-based WSQ-accredited team bonding workshop and training organisation. Hosted at `teamworkshops.exenalearninghub.org`.
 
 ## Repository Structure
 
@@ -18,16 +18,16 @@ No build tools, package managers, or frameworks. Pure static HTML + CSS + JS.
 
 ## Pages
 
-- **index.html** — Professional marketing landing page. Sections: hero, stats, approach, programmes, activities, process, testimonials, clients, funding, gallery, other training, CTA, footer. Uses Inter font via Google Fonts, CSS custom properties, scroll-reveal animations (IntersectionObserver), and lazy-loaded media.
-- **proposal.html** — Interactive proposal tool sent to prospects. Features a WSQ funding calculator with live costing for Option A (1-day) and Option B (2-day), decision strip, copy/email integration, programme timeline, activity catalogue with video previews, and photo gallery.
-- **teambonding.html** — Legacy page (content merged into new index.html).
+- **index.html**  - Professional marketing landing page. Sections: hero, stats, approach, programmes, activities, process, testimonials, clients, funding, gallery, other training, CTA, footer. Uses Inter font via Google Fonts, CSS custom properties, scroll-reveal animations (IntersectionObserver), and lazy-loaded media.
+- **proposal.html**  - Interactive proposal tool sent to prospects. Features a WSQ funding calculator with live costing for Option A (1-day) and Option B (2-day), decision strip, copy/email integration, programme timeline, activity catalogue with video previews, and photo gallery.
+- **teambonding.html**  - Legacy page (content merged into new index.html).
 
 ## Tech Stack
 
 - **HTML5** with semantic elements
-- **CSS3** — embedded, using custom properties (`--navy`, `--accent`, `--teal`, etc.), flexbox, grid, `clamp()`, gradient backgrounds, backdrop-filter
-- **JavaScript** — vanilla JS for: scroll-reveal (IntersectionObserver), lazy loading (data-src pattern), costing calculator, sticky nav, decision strip, clipboard API
-- **Google Fonts** — Inter (400–900 weights)
+- **CSS3**  - embedded, using custom properties (`--navy`, `--accent`, `--teal`, etc.), flexbox, grid, `clamp()`, gradient backgrounds, backdrop-filter
+- **JavaScript**  - vanilla JS for: scroll-reveal (IntersectionObserver), lazy loading (data-src pattern), costing calculator, sticky nav, decision strip, clipboard API
+- **Google Fonts**  - Inter (400–900 weights)
 - **No build step, no bundler, no package manager**
 
 ## Design System
@@ -54,10 +54,11 @@ No build tools, package managers, or frameworks. Pure static HTML + CSS + JS.
 
 ## Key Notes for AI Assistants
 
-- **Pure static site** — no build commands, no tests
+- **Never use em dashes** ( -) in any content. Use regular dashes (-) or rewrite the sentence instead.
+- **Pure static site**  - no build commands, no tests
 - All CSS is embedded in `<style>` tags (no external stylesheets except Google Fonts CDN)
 - Images/videos are hosted on Google Drive (thumbnail API for images, file preview for videos)
-- **Singapore audience** — preserve SGD currency, local context, government scheme references (WSQ, SFEC, SkillsFuture, EIS)
+- **Singapore audience**  - preserve SGD currency, local context, government scheme references (WSQ, SFEC, SkillsFuture, EIS)
 - **WhatsApp CTAs** link to +65 9675 3242 (Ryan)
 - **Email**: info@exenalearninghub.com (general), ryan@exenalearninghub.org (proposal)
-- The `proposal.html` costing calculator is a critical feature — test thoroughly when modifying fee structures
+- The `proposal.html` costing calculator is a critical feature  - test thoroughly when modifying fee structures
