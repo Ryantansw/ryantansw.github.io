@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="description" content="Exena Learning Hub — WSQ-accredited experiential team bonding workshops in Singapore. Government-funded programmes that build trust, alignment, and collaboration."/>
+<meta name="description" content="Exena Learning Hub — Government-funded experiential team bonding workshops in Singapore. Programmes that build trust, alignment, and collaboration."/>
 <title>Exena Learning Hub — Team Workshops That Drive Real Change</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -141,6 +141,13 @@ img{max-width:100%;display:block}
 .activity-outcomes{list-style:none;margin-top:12px;display:grid;gap:6px}
 .activity-outcomes li{font-size:13px;color:var(--slate);padding-left:16px;position:relative}
 .activity-outcomes li::before{content:'';position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.activity-video{margin-top:14px}
+.activity-video summary{font-size:13px;font-weight:600;color:var(--accent);cursor:pointer;list-style:none;display:flex;align-items:center;gap:6px}
+.activity-video summary::-webkit-details-marker{display:none}
+.activity-video summary::before{content:'▶';font-size:10px;transition:transform .2s}
+.activity-video[open] summary::before{transform:rotate(90deg)}
+.activity-video .video-embed{margin-top:10px;border-radius:var(--radius-sm);overflow:hidden;border:1px solid var(--border)}
+.activity-video .video-embed iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
 
 /* ─── PROCESS ─── */
 .process-grid{display:grid;gap:24px;counter-reset:process}
@@ -237,9 +244,7 @@ img{max-width:100%;display:block}
 <nav class="nav" id="nav">
 <div class="container">
 <div class="nav-inner">
-<a href="/" class="nav-brand">
-  <div class="nav-logo">exena<span>.</span></div>
-</a>
+<a href="/" class="nav-brand"></a>
 <div class="nav-links">
   <a href="#approach">Approach</a>
   <a href="#programmes">Programmes</a>
@@ -270,7 +275,7 @@ img{max-width:100%;display:block}
 <header class="hero">
 <div class="container">
 <div class="hero-content">
-  <div class="hero-badge">WSQ-Accredited Training Organisation</div>
+  <div class="hero-badge">Government-Funded Training Organisation</div>
   <h1>Build teams that <span class="highlight">actually perform.</span></h1>
   <p class="hero-sub">Experiential learning workshops backed by government funding. We help Singapore organisations turn team bonding into measurable capability — not just a day out.</p>
   <div class="hero-actions">
@@ -290,8 +295,8 @@ img{max-width:100%;display:block}
 <div class="stats-grid">
   <div class="stat reveal"><div class="stat-number">20+</div><div class="stat-label">Years of Training Expertise</div></div>
   <div class="stat reveal reveal-delay-1"><div class="stat-number">1,200+</div><div class="stat-label">Largest Group Engaged</div></div>
-  <div class="stat reveal reveal-delay-2"><div class="stat-number">70%</div><div class="stat-label">WSQ Funding Support</div></div>
-  <div class="stat reveal reveal-delay-3"><div class="stat-number">90%</div><div class="stat-label">SFEC Reimbursement</div></div>
+  <div class="stat reveal reveal-delay-2"><div class="stat-number">70%</div><div class="stat-label">Funding Support</div></div>
+  <div class="stat reveal reveal-delay-3"><div class="stat-number">90%</div><div class="stat-label">Reimbursement</div></div>
 </div>
 </div>
 </section>
@@ -356,7 +361,7 @@ img{max-width:100%;display:block}
 <div class="container">
 <div class="section-header reveal">
   <div class="overline">Programmes</div>
-  <h2 class="section-title">WSQ-funded programme options</h2>
+  <h2 class="section-title">Funded programme options</h2>
   <p class="section-desc">Government-backed workshops that qualify for generous funding support. Your team gets trained; your budget stays intact.</p>
 </div>
 <div class="programme-grid">
@@ -368,11 +373,11 @@ img{max-width:100%;display:block}
     </div>
     <div class="programme-body">
       <ul class="programme-list">
-        <li>WSQ-accredited, structured 1-day session</li>
-        <li>Enhanced Training Support (70% funding)</li>
+        <li>Accredited, structured 1-day session</li>
+        <li>Up to 70% government funding</li>
         <li>Absentee Payroll funding (S$4.50/hr)</li>
-        <li>SkillsFuture Enterprise Credit (90% subsidy)</li>
-        <li>Enterprise Innovation Scheme (400% tax deduction)</li>
+        <li>Up to 90% reimbursement available</li>
+        <li>Tax deduction benefits available</li>
         <li>Learning-led challenges with structured debriefs</li>
         <li>Ends with clear actions and agreed team norms</li>
       </ul>
@@ -391,10 +396,10 @@ img{max-width:100%;display:block}
     </div>
     <div class="programme-body">
       <ul class="programme-list">
-        <li>WSQ-accredited, immersive 2-day programme</li>
+        <li>Accredited, immersive 2-day programme</li>
         <li>Inclusive of venue arrangements (Hotels/Resorts)</li>
-        <li>Enhanced Training Support (70% funding)</li>
-        <li>Absentee Payroll + SFEC + EIS eligible</li>
+        <li>Up to 70% government funding</li>
+        <li>Multiple funding schemes eligible</li>
         <li>90% reimbursement for non-local staff</li>
         <li>Deeper skills practice and structured reflection</li>
         <li>Action planning to embed learning post-session</li>
@@ -426,6 +431,7 @@ img{max-width:100%;display:block}
       <li>Active listening and information sharing</li>
       <li>Consensus building and evidence-based decisions</li>
     </ul>
+    <details class="activity-video"><summary>Watch video</summary><div class="video-embed"><iframe data-src="https://drive.google.com/file/d/1Z9qeLSS7kv9od2PXAUn0cf7Lcu8P6IzL/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="CSI video"></iframe></div></details>
   </div>
   <div class="activity-card reveal">
     <h4>Domino: Cause &amp; Effect</h4>
@@ -434,6 +440,7 @@ img{max-width:100%;display:block}
       <li>Systems thinking and process discipline</li>
       <li>Shared responsibility across sub-teams</li>
     </ul>
+    <details class="activity-video"><summary>Watch video</summary><div class="video-embed"><iframe data-src="https://drive.google.com/file/d/1oTwcMX4Iq9aw2KeBC9RF_hxx1ZCD9wEP/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="Domino video"></iframe></div></details>
   </div>
   <div class="activity-card reveal">
     <h4>A Minute 2 Win It</h4>
@@ -442,6 +449,7 @@ img{max-width:100%;display:block}
       <li>Adaptability under pressure</li>
       <li>Team engagement and resilience</li>
     </ul>
+    <details class="activity-video"><summary>Watch video</summary><div class="video-embed"><iframe data-src="https://drive.google.com/file/d/1Xcmpt91PI8IKcJZbuhkZK4MG9hBP3e1o/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="Minute 2 Win It video"></iframe></div></details>
   </div>
   <div class="activity-card reveal">
     <h4>Boom Shakalaka</h4>
@@ -450,6 +458,7 @@ img{max-width:100%;display:block}
       <li>Coordination and execution discipline</li>
       <li>Working towards milestones together</li>
     </ul>
+    <details class="activity-video"><summary>Watch video</summary><div class="video-embed"><iframe data-src="https://drive.google.com/file/d/1WpPuZ8Eo7JM_ptR16dQWQMNq4Wp71-pf/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="Boom Shakalaka video"></iframe></div></details>
   </div>
   <div class="activity-card reveal">
     <h4>The Fish Market</h4>
@@ -458,6 +467,7 @@ img{max-width:100%;display:block}
       <li>Decision-making under constraints</li>
       <li>Service standards and continuous improvement</li>
     </ul>
+    <details class="activity-video"><summary>Watch video</summary><div class="video-embed"><iframe data-src="https://drive.google.com/file/d/1FFXwsizw3CRm6VoeI7v9FUuL1witfW38/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="Fish Market video"></iframe></div></details>
   </div>
   <div class="activity-card reveal">
     <h4>How the Ant Moved a Mountain</h4>
@@ -466,6 +476,7 @@ img{max-width:100%;display:block}
       <li>Trust building and leadership in action</li>
       <li>Team-first mindset</li>
     </ul>
+    <details class="activity-video"><summary>Watch video</summary><div class="video-embed"><iframe data-src="https://drive.google.com/file/d/12wrlz6TmqWBMmyeSd6Y6iccToxBEYvLU/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="Ant Mountain video"></iframe></div></details>
   </div>
   <div class="activity-card reveal">
     <h4>Bridging Teamwork</h4>
@@ -474,6 +485,7 @@ img{max-width:100%;display:block}
       <li>Project coordination and time management</li>
       <li>Execution discipline and handover clarity</li>
     </ul>
+    <details class="activity-video"><summary>Watch video</summary><div class="video-embed"><iframe data-src="https://drive.google.com/file/d/1RbKQ3jrKrik8sZeCNQ361j69NG6JBIfG/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="Bridging video"></iframe></div></details>
   </div>
   <div class="activity-card reveal">
     <h4>Paint Our Masterpiece</h4>
@@ -482,6 +494,7 @@ img{max-width:100%;display:block}
       <li>Shared vision and coordination across roles</li>
       <li>Time and resource management</li>
     </ul>
+    <details class="activity-video"><summary>Watch video</summary><div class="video-embed"><iframe data-src="https://drive.google.com/file/d/10O3IbmOY-8jeEzFn-WkOa2SjmTeIX_O4/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="Paint Masterpiece video"></iframe></div></details>
   </div>
   <div class="activity-card reveal">
     <h4>Amazing Race: Food &amp; Heritage</h4>
@@ -490,6 +503,7 @@ img{max-width:100%;display:block}
       <li>Decision-making in dynamic environments</li>
       <li>Team camaraderie through shared exploration</li>
     </ul>
+    <details class="activity-video"><summary>Watch video</summary><div class="video-embed"><iframe data-src="https://drive.google.com/file/d/1jR5l0aPsmTRvnWY4JHOgPBB_X0sKcoB7/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="Amazing Race video"></iframe></div></details>
   </div>
   <div class="activity-card reveal">
     <h4>The Running Man Race</h4>
@@ -498,6 +512,7 @@ img{max-width:100%;display:block}
       <li>Cooperation and sharing across teams</li>
       <li>Overcoming fear of mistakes</li>
     </ul>
+    <details class="activity-video"><summary>Watch video</summary><div class="video-embed"><iframe data-src="https://drive.google.com/file/d/1fn0ZquftpHChJTtX6vdkkgE4KRf0itfO/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="Running Man video"></iframe></div></details>
   </div>
   <div class="activity-card reveal">
     <h4>Escape Room Challenge</h4>
@@ -619,7 +634,7 @@ img{max-width:100%;display:block}
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
     </div>
     <div>
-      <h4>WSQ Accredited Training Organisation</h4>
+      <h4>Accredited Training Organisation</h4>
       <p>Programmes meet strict government quality standards and qualify for generous funding support.</p>
     </div>
   </div>
@@ -660,7 +675,7 @@ img{max-width:100%;display:block}
 <div class="section-header reveal">
   <div class="overline">Government Funding</div>
   <h2 class="section-title">Singapore is serious about skills</h2>
-  <p class="section-desc">Our workshops are mapped to SkillsFuture and Workforce Singapore frameworks, meaning generous funding support for your organisation.</p>
+  <p class="section-desc">Our workshops qualify for generous government funding support for your organisation.</p>
 </div>
 <div class="reveal" style="overflow-x:auto">
 <table class="funding-table">
@@ -668,10 +683,10 @@ img{max-width:100%;display:block}
 <tr><th>Scheme</th><th>Primary Benefit</th><th>What It Offsets</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>WSQ Course Fee Subsidy</strong></td><td>Subsidised training for eligible participants</td><td>Course fee component (training fee), subject to eligibility</td></tr>
+<tr><td><strong>Course Fee Subsidy</strong></td><td>Subsidised training for eligible participants</td><td>Course fee component (training fee), subject to eligibility</td></tr>
 <tr><td><strong>Absentee Payroll</strong></td><td>Reimbursement to offset wage cost during training</td><td>Eligible wage cost for employees attending during working hours</td></tr>
-<tr><td><strong>SkillsFuture Enterprise Credit (SFEC)</strong></td><td>Credit offsetting eligible out-of-pocket training costs</td><td>Training-related costs (subject to SFEC scope and balance)</td></tr>
-<tr><td><strong>Enterprise Innovation Scheme (EIS)</strong></td><td>Tax support for qualifying innovation activities</td><td>Enhanced tax deduction + cash payout options for qualifying expenditure</td></tr>
+<tr><td><strong>Enterprise Credit</strong></td><td>Credit offsetting eligible out-of-pocket training costs</td><td>Training-related costs (subject to scope and balance)</td></tr>
+<tr><td><strong>Enterprise Innovation Scheme</strong></td><td>Tax support for qualifying innovation activities</td><td>Enhanced tax deduction + cash payout options for qualifying expenditure</td></tr>
 </tbody>
 </table>
 </div>
@@ -750,8 +765,7 @@ img{max-width:100%;display:block}
 <div class="container">
 <div class="footer-grid">
   <div>
-    <div class="footer-brand">exena<span>.</span></div>
-    <p class="footer-desc">WSQ-accredited experiential learning workshops that build real team capability. Part of Wizlearn Technologies (est. 1999).</p>
+    <p class="footer-desc">Government-funded experiential learning workshops that build real team capability. Part of Wizlearn Technologies (est. 1999).</p>
   </div>
   <div>
     <div class="footer-heading">Quick Links</div>
