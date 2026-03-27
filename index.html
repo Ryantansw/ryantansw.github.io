@@ -51,8 +51,8 @@ img{max-width:100%;display:block}
 @media(min-width:768px){.nav-links{display:flex}}
 .nav-links a{font-size:14px;font-weight:500;color:var(--slate);padding:8px 14px;border-radius:10px;transition:var(--transition)}
 .nav-links a:hover{color:var(--navy);background:var(--lighter)}
-.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:999px;background:var(--navy);color:var(--white);font-size:14px;font-weight:600;transition:var(--transition)}
-.nav-cta:hover{background:var(--navy-light);transform:translateY(-1px);box-shadow:var(--shadow)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:999px;background:var(--accent);color:var(--white);font-size:14px;font-weight:600;transition:var(--transition)}
+.nav-cta:hover{background:var(--accent-dark);transform:translateY(-1px);box-shadow:var(--shadow)}
 .mobile-menu-btn{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--border);border-radius:10px;background:var(--white);cursor:pointer}
 @media(min-width:768px){.mobile-menu-btn{display:none}}
 .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);z-index:200;padding:80px 24px 24px;flex-direction:column;gap:8px}
@@ -80,7 +80,7 @@ img{max-width:100%;display:block}
 /* ─── STATS ─── */
 .stats{padding:60px 0;border-bottom:1px solid var(--border)}
 .stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-@media(min-width:768px){.stats-grid{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:768px){.stats-grid{grid-template-columns:repeat(3,1fr)}}
 .stat{text-align:center}
 .stat-number{font-size:clamp(28px,4vw,42px);font-weight:900;letter-spacing:-1px;background:linear-gradient(135deg,var(--navy) 0%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .stat-label{font-size:14px;color:var(--muted);margin-top:4px;font-weight:500}
@@ -295,9 +295,9 @@ img{max-width:100%;display:block}
 <div class="stats-grid">
   <div class="stat reveal"><div class="stat-number">20+</div><div class="stat-label">Years of Training Expertise</div></div>
   <div class="stat reveal reveal-delay-1"><div class="stat-number">1,200+</div><div class="stat-label">Largest Group Engaged</div></div>
-  <div class="stat reveal reveal-delay-2"><div class="stat-number">70%</div><div class="stat-label">Funding Support</div></div>
-  <div class="stat reveal reveal-delay-3"><div class="stat-number">90%</div><div class="stat-label">Reimbursement</div></div>
+  <div class="stat reveal reveal-delay-2"><div class="stat-number">100%</div><div class="stat-label">Reimbursement Possible*</div></div>
 </div>
+<p style="text-align:center;margin-top:16px;font-size:12px;color:var(--muted)">*Subject to company's SkillsFuture Enterprise Credit balance and tax benefits</p>
 </div>
 </section>
 
